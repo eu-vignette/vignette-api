@@ -3,7 +3,6 @@
   "pathname": "/public/products?currency=EUR",
   "method": "GET",
   "headers": {
-    "content-type": "application/json",
-    "authorization": "Bearer zpka_8f1e59d7b7b6457f939feb4c4218b0ed_433dd0e6"
+    "content-type": "application/json"
   }
 }
