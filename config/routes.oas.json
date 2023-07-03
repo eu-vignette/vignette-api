@@ -1,0 +1,833 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Vignette ID Partner API",
+    "description": "Documentation describes the possibilities of connecting to the platform **Vignette ID** for the possibility of paying for the motorway in 7 European countries.",
+    "version": "1.0.0"
+  },
+  "security": [
+    {
+      "basic-auth": []
+    },
+    {
+      "x-rh-identity": []
+    },
+    {
+      "x-rh-sources-org-id": []
+    },
+    {
+      "x-rh-sources-account-number": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Standard Partner List Endpoints",
+      "description": "Standard endpoints for managing Users, Orders and Products"
+    },
+    {
+      "name": "Extended Partner List Endpoints",
+      "description": "Extended endpoints for managing todos list items. The endpoints are mainly for convenience, performing common operations on top of the standard endpoints."
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "basic-auth": {
+        "description": "Basic authentication. Required for the \"stage\" and \"production\" environments",
+        "scheme": "basic",
+        "type": "http"
+      },
+      "x-rh-identity": {
+        "description": "Base64 encoded XRHID header's value",
+        "in": "header",
+        "name": "x-rh-identity",
+        "type": "apiKey"
+      },
+      "x-rh-sources-account-number": {
+        "description": "EBS account number to identify the tenant. Warning: it's being deprecated",
+        "in": "header",
+        "name": "x-rh-sources-account-number",
+        "type": "apiKey"
+      },
+      "x-rh-sources-org-id": {
+        "description": "OrgId value to identify the tenant",
+        "in": "header",
+        "name": "x-rh-sources-org-id",
+        "type": "apiKey"
+      }
+    },
+    "parameters": {
+      "id": {
+        "name": "id",
+        "in": "path",
+        "description": "ID of user",
+        "required": true,
+        "schema": {
+          "example": "6jgjhqqk58",
+          "type": "string"
+        }
+      },
+      "pagination": {
+        "name": "page",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "example": 5,
+          "type": "number"
+        }
+      },
+      "currency": {
+        "name": "currency",
+        "in": "query",
+        "description": "Return price of products in selected currency with the included individual commission for the partner. \n Supported currencies `EUR`, `UAH`, `USD`, `PLN`, `HUF` and more ",
+        "required": false,
+        "schema": {
+          "example": "UAH",
+          "default": "UAH",
+          "type": "string"
+        }
+      }
+    },
+    "schemas": {
+      "AllProductsObject": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "color": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "number"
+          },
+          "price": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "number"
+                },
+                "currency": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "restrictions": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "examples": [
+          {
+            "error": null,
+            "result": [
+              {
+                "name": "vignette-2a",
+                "title": "Vignette 2A",
+                "icon": "https://vignette.id/img/cars/car.svg",
+                "color": "blue",
+                "country": "si",
+                "priority": 1,
+                "price": {
+                  "7": {
+                    "amount": 734.54,
+                    "currency": "UAH"
+                  },
+                  "30": {
+                    "amount": 1346.66,
+                    "currency": "UAH"
+                  },
+                  "365": {
+                    "amount": 4611.28,
+                    "currency": "UAH"
+                  }
+                },
+                "restrictions": {
+                  "height": "< 1.3 m",
+                  "weight": "≤ 3.5 T"
+                }
+              },
+              {
+                "name": "ro-vignette-2a",
+                "title": "Vignette 2A",
+                "icon": "https://vignette.id/img/cars/car.svg",
+                "color": "blue",
+                "country": "ro",
+                "priority": 2,
+                "price": {
+                  "7": {
+                    "amount": 244.85,
+                    "currency": "UAH"
+                  }
+                },
+                "restrictions": {
+                  "height": "< 1.3 m",
+                  "weight": "≤ 3.5 T"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "AllUsersObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "created_date": {
+            "type": "number"
+          }
+        },
+        "examples": [
+          {
+            "error": null,
+            "pages": {
+              "total": 1,
+              "current": 1
+            },
+            "result": [
+              {
+                "id": "6jgjhqqk58",
+                "email": "techny@gmail.com",
+                "created_date": 1685725115
+              },
+              {
+                "id": "cxarnt70jt",
+                "email": "test@example.com",
+                "created_date": 1685725115
+              },
+              {
+                "id": "l1arxs73st",
+                "email": "info@intaxi.si",
+                "created_date": 1685725115
+              }
+            ]
+          }
+        ]
+      },
+      "AllUserOrdersObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          }
+        },
+        "examples": [
+          {
+            "error": null,
+            "pages": {
+              "total": 1,
+              "current": 1
+            },
+            "result": [
+              {
+                "id": "14ld15vqxt",
+                "user_id": "j28ho77yuh",
+                "cars": [
+                  {
+                    "pdf": "https://vignette.id/invoices/pdf/41434_j03wn8606t_ext.pdf",
+                    "plate": "AA4544AA",
+                    "country": "ua",
+                    "provider_id": "21353250123814"
+                  }
+                ],
+                "purchase_date": 1685732010,
+                "start_from": 1688119200,
+                "period": "10",
+                "type": "vignette",
+                "country": "sk",
+                "status": "ACTIVE"
+              },
+              {
+                "id": "hqld85vqit",
+                "user_id": "j28ho77yuh",
+                "cars": [
+                  {
+                    "plate": "AA4544AA",
+                    "country": "ua"
+                  }
+                ],
+                "purchase_date": 1685732010,
+                "start_from": 1688119200,
+                "period": "30",
+                "type": "vignette",
+                "country": "hu",
+                "status": "PENDING"
+              }
+            ]
+          }
+        ]
+      },
+      "InsertOrderObject": {
+        "type": "object",
+        "title": "Order Insert Schema",
+        "required": [
+          "terms_and_privacy_accepted",
+          "order_has_been_paid",
+          "email",
+          "cars",
+          "products",
+          "payment_fee"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "terms_and_privacy_accepted": {
+            "type": "boolean",
+            "description": "Information about confirming terms and privacy must be `true`",
+            "enum": [
+              "true"
+            ],
+            "examples": [
+              true
+            ]
+          },
+          "order_has_been_paid": {
+            "type": "boolean",
+            "description": "Information about payment status must be `true`",
+            "enum": [
+              "true"
+            ],
+            "examples": [
+              true
+            ]
+          },
+          "email": {
+            "type": "string",
+            "description": "User's email, needed to send receipts or to contact the user if the system detects an error in the data",
+            "examples": [
+              "user@gmail.com"
+            ]
+          },
+          "cars": {
+            "type": "array",
+            "description": "Array of cars with `car plate` and `car registration country`.\n ",
+            "items": {
+              "type": "object",
+              "properties": {
+                "plate": {
+                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n German and Austrian license plates where the car number \n must contain a minus `-` sign. \n\n [More about car plate templates](https://vignette-api-main-982aec0.d2.zuplo.dev/docs/routes/patterns)",
+                  "example": "AA4544AA",
+                  "type": "string"
+                },
+                "country": {
+                  "description": "Car registration country code. Use two letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes](https://vignette-api-main-982aec0.d2.zuplo.dev/docs/routes/countries)",
+                  "example": "ua",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "plate",
+                "country"
+              ]
+            }
+          },
+          "products": {
+            "type": "array",
+            "description": "Array of vignettes with `custom id`, `name`, `period` and  `start date`.\n",
+            "items": {
+              "type": "object",
+              "properties": {
+                "custom_id": {
+                  "description": "Order id in Partner system",
+                  "example": "partnername-000001",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "Country of vignette. \n\n To check options - use endpoint `/public/products -> name`",
+                  "example": "hu-vignette-d1",
+                  "type": "string"
+                },
+                "start_from": {
+                  "description": "Start date of vignette in `UNIX time`",
+                  "example": 1688119200,
+                  "type": "number"
+                },
+                "period": {
+                  "description": "Period of vignette. Available periods depend on the country. \n Possible options `7`, `10`, `30`, `60`, `90`, `180`, `365`. \n\n To check options - use endpoint `/public/products -> price`",
+                  "example": 30,
+                  "type": "number"
+                }
+              },
+              "required": [
+                "name",
+                "start_from",
+                "period"
+              ]
+            }
+          },
+          "payment_fee": {
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "integer",
+                "description": "Gateway fee",
+                "examples": [
+                  100
+                ]
+              },
+              "currency": {
+                "type": "string",
+                "default": "UAH",
+                "description": "The fee currency. Available in `EUR`, `UAH`, `PLN` ",
+                "examples": [
+                  "UAH",
+                  "EUR"
+                ]
+              }
+            },
+            "required": [
+              "amount"
+            ]
+          }
+        },
+        "examples": [
+          {
+            "terms_and_privacy_accepted": true,
+            "order_has_been_paid": true,
+            "email": "test@example.com",
+            "cars": [
+              {
+                "plate": "AA4544AA",
+                "country": "ua"
+              }
+            ],
+            "products": [
+              {
+                "custom_id": "partner-000001",
+                "name": "hu-vignette-d1",
+                "start_from": 1688119200,
+                "period": 30
+              }
+            ],
+            "payment_fee": {
+              "amount": 100,
+              "currency": "UAH"
+            }
+          }
+        ]
+      },
+      "ResponseOrderObject": {
+        "type": "object",
+        "examples": [
+          {
+            "error": null,
+            "result": {
+              "user_id": "j28ho77yuh",
+              "orders": [
+                {
+                  "id": "tmjge230qvh",
+                  "custom_id": "partner-000001",
+                  "currency": "UAH",
+                  "profit": 873.49,
+                  "fee": 2038.93
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "OrderObject": {
+        "type": "object",
+        "examples": [
+          {
+            "error": null,
+            "result": {
+              "user_id": "j28ho77yuh",
+              "orders": [
+                {
+                  "id": "tmjge230qvh",
+                  "custom_id": "partner-000001",
+                  "currency": "UAH",
+                  "profit": 873.49,
+                  "fee": 2038.93
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "SchemaValidationError": {
+        "type": "object",
+        "required": [
+          "type",
+          "title",
+          "status",
+          "detail",
+          "instance"
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "number"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string"
+          },
+          "trace": {
+            "type": "object"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          }
+        },
+        "examples": [
+          {
+            "type": "https://httpproblems.com/http-status/400",
+            "title": "Bad Request",
+            "status": 400,
+            "detail": "Incoming body did not pass schema validation",
+            "instance": "/v1/todos",
+            "trace": {
+              "timestamp": "2023-02-27T18:53:05.997Z",
+              "requestId": "b1e1c2a9-da7b-436c-aa89-2f78918047b2",
+              "buildId": "83e3d0f1-89a8-46ea-b040-e0a2432f2ea5",
+              "rayId": "7a031f102747944d-SJC"
+            },
+            "errors": [
+              "Body must have required property 'userId'"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "paths": {
+    "/public/products": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Products (vignettes and tunnels)",
+        "description": "All available products for customers in 7 European countries",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "partner-api-key",
+              "set-origin-api-key"
+            ]
+          }
+        },
+        "operationId": "e944b9b8-83e3-4d61-8b88-d5c6fe386102",
+        "tags": [
+          "Standard Partner List Endpoints"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/currency"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Todos with creating user data attached",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllProductsObject"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SchemaValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public/users": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Users",
+        "description": "Returns an array of partner users who made at least 1 payment.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "partner-api-key",
+              "set-origin-api-key"
+            ],
+            "outbound": []
+          }
+        },
+        "operationId": "8f60c186-5b98-4f6c-bb82-4fa2cf727128",
+        "tags": [
+          "Standard Partner List Endpoints"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pagination"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Todos with creating user data attached",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllUsersObject"
+                }
+              }
+            }
+          },
+          "300": {
+            "description": "Todos with creating user data attached",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllUsersObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public/users/:id/orders": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "User Orders",
+        "description": "An array of all vignettes for a specific user. \n Each vignette can have one of the statuses: \n `ACTIVE`, `EXPIRED`, `PENDING`, `UNPAID` \n\n `ACTIVE` - This status indicates that the vignette is currently in use. It's active and functioning as expected. \n\n `EXPIRED` - This status signifies that the vignette is no longer active or valid. This could be due to a time limit that has been exceeded or a condition that is no longer met. \n\n `PENDING` - This status means that the vignette is awaiting further action or approval. It's **not yet active**, but it's in a queue or waiting list for processing.\n\n `UNPAID` - This status indicates that payment for the vignette is due. The vignette might not be active or accessible until the payment is made. ",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlRewriteHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "rewritePattern": "${env.BASE_URL}/public/users/${params.id}/orders"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "partner-api-key",
+              "set-origin-api-key"
+            ]
+          }
+        },
+        "operationId": "af8c28f2-da4f-41ae-9303-37104d89a5b5",
+        "tags": [
+          "Standard Partner List Endpoints"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/id"
+          },
+          {
+            "$ref": "#/components/parameters/pagination"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Todos with creating user data attached",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllUserOrdersObject"
+                }
+              }
+            }
+          },
+          "300": {
+            "description": "Todos with creating user data attached",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllUsersObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public/orders/:id": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Get Order",
+        "description": "Get order information with order_id or partner id - `custom_id`",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "partner-api-key",
+              "skycash-test-api-key"
+            ]
+          }
+        },
+        "operationId": "4400136d-c3df-42e2-8fb9-f766ee4f51e4",
+        "tags": [
+          "Standard Partner List Endpoints"
+        ],
+        "responses": {
+          "200": {
+            "description": "The created todo list item",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public/orders": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "Create order",
+        "description": "New **paid** order on partner side initiate request for processing in Vignette ID system.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "insert-json-schema-inbound",
+              "partner-api-key",
+              "skycash-test-api-key"
+            ]
+          }
+        },
+        "operationId": "a5e610d2-d515-4f71-b8f3-e2a539405bd9",
+        "tags": [
+          "Standard Partner List Endpoints"
+        ],
+        "requestBody": {
+          "description": "Payload required to create a new order.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsertOrderObject"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The created todo list item",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseOrderObject"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Schema validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "examples": [
+                      {
+                        "error": {
+                          "type": "auth_test",
+                          "message": "The order would be created in production"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Schema validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "examples": [
+                      {
+                        "error": {
+                          "type": "invalid_payment_fee",
+                          "message": "Invalid payment_fee"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

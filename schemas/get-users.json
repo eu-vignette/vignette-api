@@ -1,0 +1,79 @@
+{
+  "title": "Response",
+  "type": "object",
+  "properties": {
+    "error": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Error message, if any."
+    },
+    "pages": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "description": "Total number of pages."
+        },
+        "current": {
+          "type": "integer",
+          "description": "Current page number."
+        }
+      },
+      "additionalProperties": false
+    },
+    "result": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User ID."
+          },
+          "email": {
+            "type": "string",
+            "description": "User email."
+          },
+          "created_date": {
+            "type": "integer",
+            "description": "Date when the user was created, represented as a Unix timestamp."
+          }
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "error": null,
+      "pages": {
+        "total": 1,
+        "current": 1
+      },
+      "result": [
+        {
+          "id": "6jgjhqqk58",
+          "email": "technylex@gmail.com",
+          "created_date": null
+        },
+        {
+          "id": "cxarnt70jt",
+          "email": "test@example.com",
+          "created_date": 1685725115
+        },
+        {
+          "id": null,
+          "email": "info@intaxi.si",
+          "created_date": null
+        }
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "required": [
+    "error",
+    "pages",
+    "result"
+  ]
+}

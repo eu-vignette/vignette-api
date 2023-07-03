@@ -1,0 +1,108 @@
+{
+  "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "default": "",
+      "title": "The id Schema",
+      "examples": ["q5hjhczj1v"]
+    },
+    "user_id": {
+      "type": "string",
+      "default": "",
+      "title": "The user_id Schema",
+      "examples": ["6jgjhqqk58"]
+    },
+    "cars": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "plate": {
+            "type": "string",
+            "default": "",
+            "title": "The plate Schema",
+            "examples": ["LJ000ID"]
+          },
+          "country": {
+            "type": "string",
+            "default": "",
+            "title": "The country Schema",
+            "examples": ["si"]
+          },
+          "provider_id": {
+            "type": "string",
+            "default": "",
+            "title": "The provider_id Schema",
+            "examples": ["711100461034"]
+          },
+          "pdf": {
+            "type": "string",
+            "default": "",
+            "title": "The pdf Schema",
+            "examples": ["https://vignette.id/invoices/pdf/41203_n4jc24yo92_ext.pdf"]
+          }
+        }
+      }
+    },
+    "purchase_date": {
+      "type": ["integer", "null"],
+      "default": null,
+      "title": "The purchase_date Schema",
+      "examples": [null]
+    },
+    "start_from": {
+      "type": "integer",
+      "default": 0,
+      "title": "The start_from Schema",
+      "examples": [1680472800]
+    },
+    "period": {
+      "type": "string",
+      "default": "",
+      "title": "The period Schema",
+      "examples": ["30"]
+    },
+    "type": {
+      "type": "string",
+      "enum": ["vignette", "tunnel"],
+      "title": "The type Schema",
+      "examples": ["vignette"]
+    },
+    "country": {
+      "type": "string",
+      "default": "",
+      "title": "The country Schema",
+      "examples": ["si"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["ACTIVE", "EXPIRED", "PENDING", "UNPAID"],
+      "title": "The status Schema",
+      "examples": ["ACTIVE"]
+    }
+  },
+  "examples": [
+    {
+      "id": "q5hjhczj1v",
+      "user_id": "6jgjhqqk58",
+      "cars": [
+        {
+          "plate": "LJ000ID",
+          "country": "si",
+          "provider_id": "711100461034",
+          "pdf": "https://vignette.id/invoices/pdf/41203_n4jc24yo92_ext.pdf"
+        }
+      ],
+      "purchase_date": null,
+      "start_from": 1680472800,
+      "period": "30",
+      "type": "vignette",
+      "country": "si",
+      "status": "ACTIVE"
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "additionalProperties": false,
+  "required": [
+    "terms_and_privacy_accepted",
+    "order_has_been_paid",
+    "email",
+    "cars",
+    "products"
+  ],
+  "properties": {
+    "terms_and_privacy_accepted": {
+      "type": "boolean",
+      "default": false,
+      "title": "The terms_and_privacy_accepted Schema",
+      "examples": [true]
+    },
+    "order_has_been_paid": {
+      "type": "boolean",
+      "default": false,
+      "title": "The order_has_been_paid Schema",
+      "examples": [true]
+    },
+    "email": {
+      "type": "string",
+      "default": "",
+      "title": "The email Schema",
+      "examples": ["test@example.com"]
+    },
+    "custom_id": {
+      "type": "string",
+      "default": "",
+      "title": "Partner id",
+      "examples": ["00asd4123"]
+    },
+    "cars": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "plate": {
+            "type": "string",
+            "default": "",
+            "title": "The plate Schema",
+            "examples": ["LJ000ID"]
+          },
+          "country": {
+            "type": "string",
+            "default": "",
+            "title": "The country Schema",
+            "examples": ["si"]
+          }
+        }
+      }
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "custom_id": {
+            "type": "string",
+            "default": "",
+            "title": "Partner custom id",
+            "examples": ["partner-00001"]
+          },
+          "name": {
+            "type": "string",
+            "default": "",
+            "title": "The name Schema",
+            "examples": ["hu-vignette-d1"]
+          },
+          "start_from": {
+            "type": "integer",
+            "default": 0,
+            "title": "The start_from Schema",
+            "examples": [1688119200]
+          },
+          "period": {
+            "type": "integer",
+            "default": 0,
+            "title": "The period Schema",
+            "examples": [30]
+          }
+        }
+      }
+    },
+    "payment_fee":{
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "integer",
+          "default": "",
+          "title": "The plate Schema",
+          "examples": [100]
+        },
+        "currency": {
+          "type": "string",
+          "default": "UAH",
+          "title": "The fee currency",
+          "examples": ["UAH", "EUR"]
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "terms_and_privacy_accepted": true,
+      "order_has_been_paid": true,
+      "email": "test@example.com",
+      "cars": [
+        {
+          "plate": "AA4544AA",
+          "country": "ua"
+        }
+      ],
+      "products": [
+        {
+          "name": "hu-vignette-d1",
+          "start_from": 1688983200,
+          "period": 30
+        }
+      ],
+      "payment_fee": {
+        "amount": 100,
+        "currency": "UAH"
+      },
+      "custom_id": "0233asd"
+    }
+  ]
+}

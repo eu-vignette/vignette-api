@@ -1,0 +1,23 @@
+{
+  "docs": [
+    {
+      "type": "doc",
+      "id": "index",
+      "label": "Home"
+    },
+    {
+      "type": "api-ref",
+      "label": "API Reference"
+    },
+    {
+      "type": "doc",
+      "id": "patterns",
+      "label": "Car plate patterns"
+    },
+    {
+      "type": "doc",
+      "id": "countries",
+      "label": "Country codes"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "description": "A simple POST to the initial route",
+  "pathname": "/public/orders",
+  "method": "POST",
+  "headers": {
+    "content-type": "application/json",
+    "authorization": "Bearer zpka_8f1e59d7b7b6457f939feb4c4218b0ed_433dd0e6"
+  },
+  "body": "{\n    \"terms_and_privacy_accepted\": true,\n    \"order_has_been_paid\": true,\n    \"email\": \"work@vignette.id\",\n    \"cars\": [\n        {\n            \"plate\": \"LJXXXXX\",\n            \"country\": \"si\"\n        }\n    ],\n    \"products\": [\n        {\n            \"custom_id\": \"12345-fsdfdgf/34\",\n            \"name\": \"hu-vignette-d1\",\n            \"start_from\": 1688983200,\n            \"period\": 365\n        }\n    ],\n    \"payment_fee\": {\n        \"amount\": 100,\n        \"currency\": \"UAH\"\n    }\n}\n"
+}

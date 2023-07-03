@@ -1,0 +1,136 @@
+{
+  "policies": [
+    {
+      "handler": {
+        "export": "SetHeadersInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer $env(AUTH_KEY)",
+              "overwrite": true
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json",
+              "overwrite": true
+            }
+          ]
+        }
+      },
+      "name": "set-origin-api-key",
+      "policyType": "set-headers-inbound"
+    },
+    {
+      "handler": {
+        "export": "ValidateJsonSchemaInbound",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "validator": "$import(./schemas/get-users.json)"
+        }
+      },
+      "name": "custom-code-inbound",
+      "policyType": "custom-code-inbound"
+    },
+    {
+      "handler": {
+        "export": "ValidateJsonSchemaInbound",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "validator": "$import(./schemas/get-users.json)"
+        }
+      },
+      "name": "validate-json-schema-inbound",
+      "policyType": "validate-json-schema-inbound"
+    },
+    {
+      "handler": {
+        "export": "ValidateJsonSchemaInbound",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "validator": "$import(./schemas/insert-order.json)"
+        }
+      },
+      "name": "insert-json-schema-inbound",
+      "policyType": "validate-json-schema-inbound"
+    },
+    {
+      "handler": {
+        "export": "SetHeadersInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "headers": [
+            {
+              "name": "authorization",
+              "value": "Bearer $env(PRODUCTION_AUTH_KEY)",
+              "overwrite": true
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json",
+              "overwrite": true
+            }
+          ]
+        }
+      },
+      "name": "set-production-auth-key",
+      "policyType": "set-headers-inbound"
+    },
+    {
+      "handler": {
+        "export": "ValidateJsonSchemaInbound",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "validator": "$import(./schemas/get-products.json)"
+        }
+      },
+      "name": "products-validate-json-schema-inbound",
+      "policyType": "validate-json-schema-inbound"
+    },
+    {
+      "handler": {
+        "export": "ValidateJsonSchemaInbound",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "validator": "$import(./schemas/get-users.json)"
+        }
+      },
+      "name": "users-validate-json-schema-inbound",
+      "policyType": "validate-json-schema-inbound"
+    },
+    {
+      "handler": {
+        "export": "ApiKeyInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "allowUnauthenticatedRequests": false
+        }
+      },
+      "name": "partner-api-key",
+      "policyType": "api-key-inbound"
+    },
+    {
+      "handler": {
+        "export": "SetHeadersInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer $env(SKYCASH_DEV_KEY)",
+              "overwrite": true
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json",
+              "overwrite": true
+            }
+          ]
+        }
+      },
+      "name": "skycash-test-api-key",
+      "policyType": "set-headers-inbound"
+    }
+  ]
+}
