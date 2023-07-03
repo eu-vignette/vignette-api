@@ -3,6 +3,10 @@
   "info": {
     "title": "Vignette ID Partner API",
     "description": "Documentation describes the possibilities of connecting to the platform **Vignette ID** for the possibility of paying for the motorway in 7 European countries.",
+    "contact": {
+      "name": "API Support",
+      "email": "work+api+support@vignette.id"
+    },
     "version": "1.0.0"
   },
   "security": [
@@ -26,7 +30,7 @@
     },
     {
       "name": "Extended Partner List Endpoints",
-      "description": "Extended endpoints for managing todos list items. The endpoints are mainly for convenience, performing common operations on top of the standard endpoints."
+      "description": "Extended endpoints."
     }
   ],
   "components": {
@@ -56,10 +60,20 @@
       }
     },
     "parameters": {
-      "id": {
+      "UserId": {
         "name": "id",
         "in": "path",
         "description": "ID of user",
+        "required": true,
+        "schema": {
+          "example": "6jgjhqqk58",
+          "type": "string"
+        }
+      },
+      "OrderOrCustomId": {
+        "name": "id",
+        "in": "path",
+        "description": "`id` of order in Vignette ID system or `custom_id` from Partner system",
         "required": true,
         "schema": {
           "example": "6jgjhqqk58",
@@ -91,42 +105,50 @@
       "AllProductsObject": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string"
+          "error": {
+            "type": "null"
           },
-          "title": {
-            "type": "string"
-          },
-          "icon": {
-            "type": "string"
-          },
-          "color": {
-            "type": "string"
-          },
-          "country": {
-            "type": "string"
-          },
-          "priority": {
-            "type": "number"
-          },
-          "price": {
+          "result": {
             "type": "object",
-            "additionalProperties": {
-              "type": "object",
-              "properties": {
-                "amount": {
-                  "type": "number"
-                },
-                "currency": {
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "icon": {
+                "type": "string"
+              },
+              "color": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "priority": {
+                "type": "number"
+              },
+              "price": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "number"
+                    },
+                    "currency": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "restrictions": {
+                "type": "object",
+                "additionalProperties": {
                   "type": "string"
                 }
               }
-            }
-          },
-          "restrictions": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
             }
           }
         },
@@ -222,6 +244,24 @@
           }
         ]
       },
+      "UserNotFoundError": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "user_not_found"
+              },
+              "message": {
+                "type": "string",
+                "example": "User does not exists"
+              }
+            }
+          }
+        }
+      },
       "AllUserOrdersObject": {
         "type": "object",
         "properties": {
@@ -239,6 +279,7 @@
             "result": [
               {
                 "id": "14ld15vqxt",
+                "custom_id": "partner-000001",
                 "user_id": "j28ho77yuh",
                 "cars": [
                   {
@@ -257,6 +298,7 @@
               },
               {
                 "id": "hqld85vqit",
+                "custom_id": "partner-000002",
                 "user_id": "j28ho77yuh",
                 "cars": [
                   {
@@ -275,6 +317,69 @@
           }
         ]
       },
+      "OrderResult": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "1k99i2ddy6"
+          },
+          "custom_id": {
+            "type": "string",
+            "example": "partner-000001"
+          },
+          "currency": {
+            "type": "string",
+            "example": "UAH"
+          },
+          "profit": {
+            "type": "number",
+            "example": 477.55
+          },
+          "fee": {
+            "type": "number",
+            "example": 477.55
+          }
+        }
+      },
+      "ResponseOrderObject": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "null"
+          },
+          "result": {
+            "type": "object",
+            "properties": {
+              "user_id": {
+                "type": "string",
+                "example": "j28ho77yuh"
+              },
+              "orders": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/OrderResult"
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "error": null,
+          "result": {
+            "user_id": "j28ho77yuh",
+            "orders": [
+              {
+                "id": "1k99i2ddy6",
+                "custom_id": "partner-000001",
+                "currency": "UAH",
+                "profit": 477.55,
+                "fee": 477.55
+              }
+            ]
+          }
+        }
+      },
       "InsertOrderObject": {
         "type": "object",
         "title": "Order Insert Schema",
@@ -290,118 +395,93 @@
         "properties": {
           "terms_and_privacy_accepted": {
             "type": "boolean",
-            "description": "Information about confirming terms and privacy must be `true`",
-            "enum": [
-              "true"
-            ],
-            "examples": [
-              true
-            ]
+            "description": "Must be `true` to indicate that terms and privacy are accepted.",
+            "examples": [true]
           },
           "order_has_been_paid": {
             "type": "boolean",
-            "description": "Information about payment status must be `true`",
-            "enum": [
-              "true"
-            ],
-            "examples": [
-              true
-            ]
+            "description": "Must be `true` to indicate that the order has been paid.",
+            "examples": [true]
           },
           "email": {
             "type": "string",
-            "description": "User's email, needed to send receipts or to contact the user if the system detects an error in the data",
-            "examples": [
-              "user@gmail.com"
-            ]
+            "format": "email",
+            "description": "User's email for sending receipts or contacting in case of data errors.",
+            "examples": ["user@gmail.com"]
           },
           "cars": {
             "type": "array",
-            "description": "Array of cars with `car plate` and `car registration country`.\n ",
+            "description": "Array of cars with car plate and registration country.",
             "items": {
               "type": "object",
+              "required": ["plate", "country"],
               "properties": {
                 "plate": {
-                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n German and Austrian license plates where the car number \n must contain a minus `-` sign. \n\n [More about car plate templates](https://vignette-api-main-982aec0.d2.zuplo.dev/docs/routes/patterns)",
-                  "example": "AA4544AA",
-                  "type": "string"
+                  "type": "string",
+                  "description": "Car plate number. Only numbers and Latin characters are allowed. German and Austrian plates must contain a minus `-` sign.",
+                  "example": "AA4544AA"
                 },
                 "country": {
-                  "description": "Car registration country code. Use two letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes](https://vignette-api-main-982aec0.d2.zuplo.dev/docs/routes/countries)",
-                  "example": "ua",
-                  "type": "string"
+                  "type": "string",
+                  "description": "Car registration country code. Use two-letter code format.",
+                  "example": "ua"
                 }
-              },
-              "required": [
-                "plate",
-                "country"
-              ]
+              }
             }
           },
           "products": {
             "type": "array",
-            "description": "Array of vignettes with `custom id`, `name`, `period` and  `start date`.\n",
+            "description": "Array of vignettes with custom id, name, period, and start date.",
             "items": {
               "type": "object",
+              "required": ["name", "start_from", "period"],
               "properties": {
                 "custom_id": {
+                  "type": "string",
                   "description": "Order id in Partner system",
-                  "example": "partnername-000001",
-                  "type": "string"
+                  "example": "partnername-000001"
                 },
                 "name": {
-                  "description": "Country of vignette. \n\n To check options - use endpoint `/public/products -> name`",
-                  "example": "hu-vignette-d1",
-                  "type": "string"
+                  "type": "string",
+                  "description": "Country of vignette.",
+                  "example": "hu-vignette-d1"
                 },
                 "start_from": {
-                  "description": "Start date of vignette in `UNIX time`",
-                  "example": 1688119200,
-                  "type": "number"
+                  "type": "integer",
+                  "format": "int64",
+                  "description": "Start date of vignette in UNIX time",
+                  "example": 1690711200
                 },
                 "period": {
-                  "description": "Period of vignette. Available periods depend on the country. \n Possible options `7`, `10`, `30`, `60`, `90`, `180`, `365`. \n\n To check options - use endpoint `/public/products -> price`",
-                  "example": 30,
-                  "type": "number"
+                  "type": "integer",
+                  "description": "Period of vignette. Available periods depend on the country.",
+                  "example": 30
                 }
-              },
-              "required": [
-                "name",
-                "start_from",
-                "period"
-              ]
+              }
             }
           },
           "payment_fee": {
             "type": "object",
+            "required": ["amount"],
             "properties": {
               "amount": {
                 "type": "integer",
                 "description": "Gateway fee",
-                "examples": [
-                  100
-                ]
+                "examples": [100]
               },
               "currency": {
                 "type": "string",
-                "default": "UAH",
-                "description": "The fee currency. Available in `EUR`, `UAH`, `PLN` ",
-                "examples": [
-                  "UAH",
-                  "EUR"
-                ]
+                "description": "The fee currency. Available in `EUR`, `UAH`, `PLN`.",
+                "examples": ["UAH", "EUR"]
               }
-            },
-            "required": [
-              "amount"
-            ]
+            }
           }
         },
         "examples": [
           {
             "terms_and_privacy_accepted": true,
             "order_has_been_paid": true,
-            "email": "test@example.com",
+            "email": "user@example.com",
             "cars": [
               {
                 "plate": "AA4544AA",
@@ -410,9 +490,9 @@
             ],
             "products": [
               {
-                "custom_id": "partner-000001",
+                "custom_id": "partnername-000001",
                 "name": "hu-vignette-d1",
-                "start_from": 1688119200,
+                "start_from": 1690711200,
                 "period": 30
               }
             ],
@@ -423,42 +503,83 @@
           }
         ]
       },
-      "ResponseOrderObject": {
-        "type": "object",
-        "examples": [
-          {
-            "error": null,
-            "result": {
-              "user_id": "j28ho77yuh",
-              "orders": [
-                {
-                  "id": "tmjge230qvh",
-                  "custom_id": "partner-000001",
-                  "currency": "UAH",
-                  "profit": 873.49,
-                  "fee": 2038.93
-                }
-              ]
-            }
-          }
-        ]
-      },
       "OrderObject": {
         "type": "object",
+        "properties": {
+          "error": {
+            "type": "null"
+          },
+          "result": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "custom_id": {
+                "type": "string"
+              },
+              "user_id": {
+                "type": "string"
+              },
+              "cars": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "plate": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["plate", "country"]
+                }
+              },
+              "purchase_date": {
+                "type": "integer"
+              },
+              "start_from": {
+                "type": "integer"
+              },
+              "period": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "country": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "receipt": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "examples": [
           {
             "error": null,
             "result": {
+              "id": "1k99i2ddy6",
+              "custom_id": "partnername-000001",
               "user_id": "j28ho77yuh",
-              "orders": [
+              "cars": [
                 {
-                  "id": "tmjge230qvh",
-                  "custom_id": "partner-000001",
-                  "currency": "UAH",
-                  "profit": 873.49,
-                  "fee": 2038.93
+                  "plate": "LJXXXXX",
+                  "country": "si"
                 }
-              ]
+              ],
+              "purchase_date": 1688417000,
+              "start_from": 1688983200,
+              "period": "10",
+              "type": "vignette",
+              "country": "hu",
+              "status": "ACTIVE",
+              "receipt": "https://vignette.id/invoices/pdf/25878_2fqp7caugk.pdf"
             }
           }
         ]
@@ -517,6 +638,49 @@
             ]
           }
         ]
+      },
+      "NotFoundError": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "https://httpproblems.com/http-status/404"
+          },
+          "title": {
+            "type": "string",
+            "example": "Not Found"
+          },
+          "status": {
+            "type": "integer",
+            "example": 404
+          },
+          "instance": {
+            "type": "string",
+            "example": "/public/user/j28ho77yuh/orders"
+          },
+          "trace": {
+            "type": "object",
+            "properties": {
+              "timestamp": {
+                "type": "string",
+                "format": "date-time",
+                "example": "2023-07-03T20:37:37.958Z"
+              },
+              "requestId": {
+                "type": "string",
+                "example": "2e86c561-67d4-4830-891e-e0cf9e591912"
+              },
+              "buildId": {
+                "type": "string",
+                "example": "1dc83389-dacc-4868-92e9-1f684c59e229"
+              },
+              "rayId": {
+                "type": "string",
+                "example": "7e11ed6fc5ae0bdb-AMS"
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -663,7 +827,7 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/id"
+            "$ref": "#/components/parameters/UserId"
           },
           {
             "$ref": "#/components/parameters/pagination"
@@ -680,12 +844,32 @@
               }
             }
           },
-          "300": {
-            "description": "Todos with creating user data attached",
+          "401": {
+            "description": "Your request could not be processed",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AllUsersObject"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/UserNotFoundError"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UserNotFoundError"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UserNotFoundError"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundError"
                 }
               }
             }
@@ -720,6 +904,11 @@
         "tags": [
           "Standard Partner List Endpoints"
         ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/OrderOrCustomId"
+          }
+        ],
         "responses": {
           "200": {
             "description": "The created todo list item",
@@ -727,6 +916,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/OrderObject"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundError"
                 }
               }
             }
@@ -775,7 +974,7 @@
         },
         "responses": {
           "200": {
-            "description": "The created todo list item",
+            "description": "Successful operation",
             "content": {
               "application/json": {
                 "schema": {
@@ -798,6 +997,39 @@
                           "type": "auth_test",
                           "message": "The order would be created in production"
                         }
+                      },
+                      {
+                        "error": {
+                          "type": "pending_orders",
+                          "message": "You already have orders that are being processed"
+                        }
+                      },
+                      {
+                        "error": {
+                          "type": "invalid_custom_id",
+                          "message": "Custom id already exists",
+                          "index": 0
+                        }
+                      },
+                      {
+                        "error": {
+                          "type": "invalid_payment_fee",
+                          "message": "Invalid payment_fee"
+                        }
+                      },
+                      {
+                        "error": {
+                          "type": "invalid_start_from",
+                          "message": "Invalid product data",
+                          "index": 0
+                        }
+                      },
+                      {
+                        "error": {
+                          "type": "invalid_period",
+                          "message": "Invalid product data",
+                          "index": 0
+                        }
                       }
                     ]
                   }
@@ -805,23 +1037,12 @@
               }
             }
           },
-          "401": {
-            "description": "Schema validation error",
+          "404": {
+            "description": "Not found error",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "examples": [
-                      {
-                        "error": {
-                          "type": "invalid_payment_fee",
-                          "message": "Invalid payment_fee"
-                        }
-                      }
-                    ]
-                  }
+                  "$ref": "#/components/schemas/NotFoundError"
                 }
               }
             }
