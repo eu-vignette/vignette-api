@@ -131,6 +131,23 @@
       },
       "name": "skycash-test-api-key",
       "policyType": "set-headers-inbound"
+    },
+    {
+      "handler": {
+        "export": "SetHeadersInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "headers": [
+            {
+              "name": "authorization",
+              "value": "Bearer",
+              "overwrite": true
+            }
+          ]
+        }
+      },
+      "name": "set-headers-inbound",
+      "policyType": "set-headers-inbound"
     }
   ]
 }

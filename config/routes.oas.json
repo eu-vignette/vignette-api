@@ -283,10 +283,8 @@
                 "user_id": "j28ho77yuh",
                 "cars": [
                   {
-                    "pdf": "https://vignette.id/invoices/pdf/41434_j03wn8606t_ext.pdf",
                     "plate": "AA4544AA",
-                    "country": "ua",
-                    "provider_id": "21353250123814"
+                    "country": "ua"
                   }
                 ],
                 "purchase_date": 1685732010,
@@ -294,7 +292,8 @@
                 "period": "10",
                 "type": "vignette",
                 "country": "sk",
-                "status": "ACTIVE"
+                "status": "ACTIVE",
+                "receipt": "https://vignette.id/invoices/pdf/25878_2fqp7caugk.pdf"
               },
               {
                 "id": "hqld85vqit",
@@ -308,10 +307,11 @@
                 ],
                 "purchase_date": 1685732010,
                 "start_from": 1688119200,
-                "period": "30",
-                "type": "vignette",
-                "country": "hu",
-                "status": "PENDING"
+                "period": "2j",
+                "type": "tunnel",
+                "country": "at",
+                "status": "PENDING",
+                "receipt": "https://vignette.id/invoices/pdf/25878_2fqp7caugk.pdf"
               }
             ]
           }
@@ -396,34 +396,43 @@
           "terms_and_privacy_accepted": {
             "type": "boolean",
             "description": "Must be `true` to indicate that terms and privacy are accepted.",
-            "examples": [true]
+            "examples": [
+              true
+            ]
           },
           "order_has_been_paid": {
             "type": "boolean",
             "description": "Must be `true` to indicate that the order has been paid.",
-            "examples": [true]
+            "examples": [
+              true
+            ]
           },
           "email": {
             "type": "string",
             "format": "email",
             "description": "User's email for sending receipts or contacting in case of data errors.",
-            "examples": ["user@gmail.com"]
+            "examples": [
+              "user@gmail.com"
+            ]
           },
           "cars": {
             "type": "array",
             "description": "Array of cars with car plate and registration country.",
             "items": {
               "type": "object",
-              "required": ["plate", "country"],
+              "required": [
+                "plate",
+                "country"
+              ],
               "properties": {
                 "plate": {
                   "type": "string",
-                  "description": "Car plate number. Only numbers and Latin characters are allowed. German and Austrian plates must contain a minus `-` sign.",
+                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n German and Austrian license plates where the car number \n must contain a minus `-` sign. \n\n [More about car plate templates](https://vignette-api-main-982aec0.d2.zuplo.dev/docs/routes/patterns)",
                   "example": "AA4544AA"
                 },
                 "country": {
                   "type": "string",
-                  "description": "Car registration country code. Use two-letter code format.",
+                  "description": "Car registration country code. Use two letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes](https://vignette-api-main-982aec0.d2.zuplo.dev/docs/routes/countries)",
                   "example": "ua"
                 }
               }
@@ -434,7 +443,11 @@
             "description": "Array of vignettes with custom id, name, period, and start date.",
             "items": {
               "type": "object",
-              "required": ["name", "start_from", "period"],
+              "required": [
+                "name",
+                "start_from",
+                "period"
+              ],
               "properties": {
                 "custom_id": {
                   "type": "string",
@@ -443,7 +456,7 @@
                 },
                 "name": {
                   "type": "string",
-                  "description": "Country of vignette.",
+                  "description": "Country of vignette. \n\n To check options - use endpoint `/public/products -> name`",
                   "example": "hu-vignette-d1"
                 },
                 "start_from": {
@@ -454,7 +467,7 @@
                 },
                 "period": {
                   "type": "integer",
-                  "description": "Period of vignette. Available periods depend on the country.",
+                  "description": "Period of vignette. Available periods depend on the country. \n Possible options `7`, `10`, `30`, `60`, `90`, `180`, `365`. \n\n To check options - use endpoint `/public/products -> price`",
                   "example": 30
                 }
               }
@@ -462,17 +475,24 @@
           },
           "payment_fee": {
             "type": "object",
-            "required": ["amount"],
+            "required": [
+              "amount"
+            ],
             "properties": {
               "amount": {
                 "type": "integer",
                 "description": "Gateway fee",
-                "examples": [100]
+                "examples": [
+                  100
+                ]
               },
               "currency": {
                 "type": "string",
                 "description": "The fee currency. Available in `EUR`, `UAH`, `PLN`.",
-                "examples": ["UAH", "EUR"]
+                "examples": [
+                  "UAH",
+                  "EUR"
+                ]
               }
             }
           }
@@ -533,7 +553,10 @@
                       "type": "string"
                     }
                   },
-                  "required": ["plate", "country"]
+                  "required": [
+                    "plate",
+                    "country"
+                  ]
                 }
               },
               "purchase_date": {
