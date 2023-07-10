@@ -396,6 +396,9 @@
           "terms_and_privacy_accepted": {
             "type": "boolean",
             "description": "Must be `true` to indicate that terms and privacy are accepted.",
+            "enum": [
+              true
+            ],
             "examples": [
               true
             ]
@@ -403,6 +406,9 @@
           "order_has_been_paid": {
             "type": "boolean",
             "description": "Must be `true` to indicate that the order has been paid.",
+            "enum": [
+              true
+            ],
             "examples": [
               true
             ]
@@ -807,16 +813,6 @@
                 }
               }
             }
-          },
-          "300": {
-            "description": "Todos with creating user data attached",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AllUsersObject"
-                }
-              }
-            }
           }
         }
       }
@@ -976,7 +972,7 @@
             "inbound": [
               "insert-json-schema-inbound",
               "partner-api-key",
-              "skycash-test-api-key"
+              "wog-dev-api-key"
             ]
           }
         },

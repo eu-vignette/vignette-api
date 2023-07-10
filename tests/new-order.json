@@ -3,7 +3,8 @@
   "pathname": "/public/orders",
   "method": "POST",
   "headers": {
-    "content-type": "application/json"
+    "content-type": "application/json",
+    "authorization": "zpka_743ce0b9c662441a81db8406d312e3f1_22254560"
   },
-  "body": "{\n    \"terms_and_privacy_accepted\": true,\n    \"order_has_been_paid\": true,\n    \"email\": \"work@vignette.id\",\n    \"cars\": [\n        {\n            \"plate\": \"LJXXXXX\",\n            \"country\": \"si\"\n        }\n    ],\n    \"products\": [\n        {\n            \"custom_id\": \"12345-fsdfdgf/34\",\n            \"name\": \"hu-vignette-d1\",\n            \"start_from\": 1688983200,\n            \"period\": 365\n        }\n    ],\n    \"payment_fee\": {\n        \"amount\": 100,\n        \"currency\": \"UAH\"\n    }\n}\n"
+  "body": "{\n  \"cars\": [\n    {\n      \"plate\": \"AA4544AA\",\n      \"country\": \"ua\"\n    }\n  ],\n  \"email\": \"user@example.com\",\n  \"order_has_been_paid\": true,\n  \"payment_fee\": {\n    \"amount\": 3,\n    \"currency\": \"PLN\"\n  },\n  \"products\": [\n    {\n      \"custom_id\": \"partnername-000011\",\n      \"name\": \"vignette-2a\",\n      \"start_from\": 1688925600,\n      \"period\": 10\n    },{\n      \"custom_id\": \"partnername-0000112\",\n      \"name\": \"cz-vignette\",\n      \"start_from\": 1688925600,\n      \"period\": 10\n    }\n  ],\n  \"terms_and_privacy_accepted\": true\n}"
 }
