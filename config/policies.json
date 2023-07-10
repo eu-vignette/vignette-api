@@ -148,6 +148,28 @@
       },
       "name": "set-headers-inbound",
       "policyType": "set-headers-inbound"
+    },
+    {
+      "handler": {
+        "export": "SetHeadersInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer $env(WOG_DEV_KEY)",
+              "overwrite": true
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json",
+              "overwrite": true
+            }
+          ]
+        }
+      },
+      "name": "wog-dev-api-key",
+      "policyType": "set-headers-inbound"
     }
   ]
 }
