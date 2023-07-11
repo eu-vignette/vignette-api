@@ -170,6 +170,14 @@
       },
       "name": "wog-dev-api-key",
       "policyType": "set-headers-inbound"
+    },
+    {
+      "handler": {
+        "export": "default",
+        "module": "$import(./modules/my-first-policy)"
+      },
+      "name": "my-first-policy",
+      "policyType": "set-headers-inbound"
     }
   ]
 }
