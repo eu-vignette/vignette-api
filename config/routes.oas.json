@@ -747,7 +747,7 @@
           "policies": {
             "inbound": [
               "partner-api-key",
-              "my-first-policy"
+              "partner-policy-key"
             ]
           }
         },
@@ -803,7 +803,7 @@
           "policies": {
             "inbound": [
               "partner-api-key",
-              "my-first-policy"
+              "partner-policy-key"
             ],
             "outbound": []
           }
@@ -850,7 +850,7 @@
           "policies": {
             "inbound": [
               "partner-api-key",
-              "wog-dev-api-key"
+              "partner-policy-key"
             ]
           }
         },
@@ -929,7 +929,7 @@
           "policies": {
             "inbound": [
               "partner-api-key",
-              "wog-dev-api-key"
+              "partner-policy-key"
             ]
           }
         },
@@ -984,8 +984,9 @@
           },
           "policies": {
             "inbound": [
+              "insert-order-policy",
               "partner-api-key",
-              "my-first-policy"
+              "partner-policy-key"
             ]
           }
         },
@@ -1080,29 +1081,6 @@
             }
           }
         }
-      }
-    },
-    "/path-5": {
-      "x-zuplo-path": {
-        "pathMode": "open-api"
-      },
-      "get": {
-        "summary": "New Route",
-        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
-        "x-zuplo-route": {
-          "corsPolicy": "none",
-          "handler": {
-            "export": "urlForwardHandler",
-            "module": "$import(@zuplo/runtime)",
-            "options": {
-              "baseUrl": "https://echo.zuplo.io"
-            }
-          },
-          "policies": {
-            "inbound": []
-          }
-        },
-        "operationId": "c7ab5565-64d0-45ce-a30f-7ee89ec57235"
       }
     }
   }
