@@ -70,7 +70,7 @@
           "type": "string"
         }
       },
-      "OrderOrCustomId": {
+      "OrderIdOrCustomId": {
         "name": "id",
         "in": "path",
         "description": "`id` of order in Vignette ID system or `custom_id` from Partner system",
@@ -284,7 +284,8 @@
                 "cars": [
                   {
                     "plate": "AA4544AA",
-                    "country": "ua"
+                    "country": "ua",
+                    "provider_id": "001001001"
                   }
                 ],
                 "purchase_date": 1685732010,
@@ -302,7 +303,8 @@
                 "cars": [
                   {
                     "plate": "AA4544AA",
-                    "country": "ua"
+                    "country": "ua",
+                    "provider_id": "101001011"
                   }
                 ],
                 "purchase_date": 1685732010,
@@ -396,7 +398,7 @@
             "type": "boolean",
             "description": "Must be `true` to indicate that terms and privacy are accepted.",
             "enum": [
-              true
+              "true"
             ],
             "examples": [
               true
@@ -406,7 +408,7 @@
             "type": "boolean",
             "description": "Must be `true` to indicate that the order has been paid.",
             "enum": [
-              true
+              "true"
             ],
             "examples": [
               true
@@ -439,6 +441,11 @@
                   "type": "string",
                   "description": "Car registration country code. Use two letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes](https://vignette-api-main-982aec0.d2.zuplo.dev/docs/routes/countries)",
                   "example": "ua"
+                },
+                "provider_id": {
+                  "type": "string",
+                  "description": "Car registration country code. Use two letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes](https://vignette-api-main-982aec0.d2.zuplo.dev/docs/routes/countries)",
+                  "example": "J7MH26M"
                 }
               }
             }
@@ -558,6 +565,11 @@
                     },
                     "country": {
                       "type": "string"
+                    },
+                    "provider_id": {
+                      "type": "string",
+                      "description": "Car registration country code. Use two letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes](https://vignette-api-main-982aec0.d2.zuplo.dev/docs/routes/countries)",
+                      "example": "J7MH26M"
                     }
                   },
                   "required": [
@@ -600,7 +612,8 @@
               "cars": [
                 {
                   "plate": "LJXXXXX",
-                  "country": "si"
+                  "country": "si",
+                  "provider_id": "001001001"
                 }
               ],
               "purchase_date": 1688417000,
@@ -734,7 +747,7 @@
           "policies": {
             "inbound": [
               "partner-api-key",
-              "wog-dev-api-key"
+              "my-first-policy"
             ]
           }
         },
@@ -790,7 +803,7 @@
           "policies": {
             "inbound": [
               "partner-api-key",
-              "wog-dev-api-key"
+              "my-first-policy"
             ],
             "outbound": []
           }
@@ -824,7 +837,7 @@
       },
       "get": {
         "summary": "User Orders",
-        "description": "An array of all vignettes for a specific user. \n Each vignette can have one of the statuses: \n `ACTIVE`, `EXPIRED`, `PENDING`, `UNPAID` \n\n `ACTIVE` - This status indicates that the vignette is currently in use. It's active and functioning as expected. \n\n `EXPIRED` - This status signifies that the vignette is no longer active or valid. This could be due to a time limit that has been exceeded or a condition that is no longer met. \n\n `PENDING` - This status means that the vignette is awaiting further action or approval. It's **not yet active**, but it's in a queue or waiting list for processing.\n\n `UNPAID` - This status indicates that payment for the vignette is due. The vignette might not be active or accessible until the payment is made. ",
+        "description": "An array of all vignettes for a specific user. \n\n **• Statuses** \n\n Each vignette can have one of the statuses: \n `ACTIVE`, `EXPIRED`, `PENDING`, `UNPAID` \n\n `ACTIVE` - This status indicates that the vignette is currently in use. It's active and functioning as expected. \n\n `EXPIRED` - This status signifies that the vignette is no longer active or valid. This could be due to a time limit that has been exceeded or a condition that is no longer met. \n\n `PENDING` - This status means that the vignette is awaiting further action or approval. It's **not yet active**, but it's in a queue or waiting list for processing.\n\n `UNPAID` - This status indicates that payment for the vignette is due. The vignette might not be active or accessible until the payment is made. \n\n **• Unique vignette id** \n\n `provider_id` is a string represented unique vignette id in national providers system in diferent formats",
         "x-zuplo-route": {
           "corsPolicy": "none",
           "handler": {
@@ -903,7 +916,7 @@
       },
       "get": {
         "summary": "Get Order",
-        "description": "Get order information with order_id or partner id - `custom_id`",
+        "description": " • `id` - order id in Vignette ID system \n\n • `custom_id` - order id in Partner system\n\n • `provider_id` - unique vignette id in national (government) providers systems \n\n",
         "x-zuplo-route": {
           "corsPolicy": "none",
           "handler": {
@@ -926,7 +939,7 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/OrderOrCustomId"
+            "$ref": "#/components/parameters/OrderIdOrCustomId"
           }
         ],
         "responses": {
@@ -971,9 +984,8 @@
           },
           "policies": {
             "inbound": [
-              "insert-json-schema-inbound",
               "partner-api-key",
-              "wog-dev-api-key"
+              "my-first-policy"
             ]
           }
         },
@@ -1068,6 +1080,29 @@
             }
           }
         }
+      }
+    },
+    "/path-5": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "New Route",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://echo.zuplo.io"
+            }
+          },
+          "policies": {
+            "inbound": []
+          }
+        },
+        "operationId": "c7ab5565-64d0-45ce-a30f-7ee89ec57235"
       }
     }
   }
