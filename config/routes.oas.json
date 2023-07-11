@@ -489,7 +489,8 @@
                 "type": "number",
                 "description": "Gateway fee",
                 "examples": [
-                  100, 3.14
+                  100,
+                  3.14
                 ]
               },
               "currency": {
@@ -733,7 +734,7 @@
           "policies": {
             "inbound": [
               "partner-api-key",
-              "set-origin-api-key"
+              "wog-dev-api-key"
             ]
           }
         },
@@ -789,7 +790,7 @@
           "policies": {
             "inbound": [
               "partner-api-key",
-              "set-origin-api-key"
+              "wog-dev-api-key"
             ],
             "outbound": []
           }
@@ -836,7 +837,7 @@
           "policies": {
             "inbound": [
               "partner-api-key",
-              "set-origin-api-key"
+              "wog-dev-api-key"
             ]
           }
         },
@@ -915,7 +916,7 @@
           "policies": {
             "inbound": [
               "partner-api-key",
-              "skycash-test-api-key"
+              "wog-dev-api-key"
             ]
           }
         },
