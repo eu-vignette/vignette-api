@@ -10,8 +10,7 @@ export default async function (
   policyName: string
 ) {
   request.headers.set('authorization', 'Bearer ' + request.user.data['test_key']);
-
-  context.log.info(request.body)
+  request.headers.set('partnername', request.user.data['name']);
 
   return request;
 }
