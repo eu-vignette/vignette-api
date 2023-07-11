@@ -388,8 +388,7 @@
           "order_has_been_paid",
           "email",
           "cars",
-          "products",
-          "payment_fee"
+          "products"
         ],
         "additionalProperties": false,
         "properties": {
@@ -482,14 +481,15 @@
           "payment_fee": {
             "type": "object",
             "required": [
-              "amount"
+              "amount",
+              "currency"
             ],
             "properties": {
               "amount": {
-                "type": "integer",
+                "type": "number",
                 "description": "Gateway fee",
                 "examples": [
-                  100
+                  100, 3.14
                 ]
               },
               "currency": {
