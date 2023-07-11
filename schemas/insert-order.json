@@ -8,8 +8,7 @@
     "order_has_been_paid",
     "email",
     "cars",
-    "products",
-    "payment_fee"
+    "products"
   ],
   "properties": {
     "terms_and_privacy_accepted": {
@@ -27,7 +26,7 @@
     "email": {
       "type": "string",
       "default": "",
-      "title": "The email Schema",
+      "title": "The partner user email",
       "examples": ["test@example.com"]
     },
     "custom_id": {
@@ -70,19 +69,19 @@
           "name": {
             "type": "string",
             "default": "",
-            "title": "The name Schema",
+            "title": "Name of vignette",
             "examples": ["hu-vignette-d1"]
           },
           "start_from": {
             "type": "integer",
             "default": 0,
-            "title": "The start_from Schema",
+            "title": "Start date of period",
             "examples": [1690711200]
           },
           "period": {
             "type": "integer",
             "default": 0,
-            "title": "The period Schema",
+            "title": "Days amount in period",
             "examples": [30]
           }
         }
@@ -92,10 +91,27 @@
       "type": "object",
       "properties": {
         "amount": {
-          "type": "integer",
+          "type": "number",
           "default": "",
-          "title": "The plate Schema",
-          "examples": [100]
+          "title": "The partner payment fee",
+          "examples": [100, 3.24]
+        },
+        "currency": {
+          "type": "string",
+          "default": "UAH",
+          "title": "The fee currency",
+          "examples": ["UAH", "EUR"]
+        }
+      }
+    },
+    "vat_fee":{
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "default": "",
+          "title": "The partner vat fee",
+          "examples": [100, 3.24]
         },
         "currency": {
           "type": "string",
