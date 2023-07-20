@@ -87,7 +87,7 @@
         }
       }
     },
-    "payment_fee":{
+    "interchange_fee":{
       "type": "object",
       "properties": {
         "amount": {
@@ -141,9 +141,9 @@
           "period": 30
         }
       ],
-      "payment_fee": {
-        "amount": 100,
-        "currency": "UAH"
+      "interchange_fee": {
+        "amount": 0.33,
+        "currency": "EUR"
       }
     }
   ]
