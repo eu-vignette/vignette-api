@@ -1070,7 +1070,6 @@
               }
             }
           },
-          
           "404": {
             "description": "Not found error",
             "content": {
@@ -1082,6 +1081,27 @@
             }
           }
         }
+      },
+      "get": {
+        "summary": "Get Orders",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "partner-api-key",
+              "partner-policy-key"
+            ]
+          }
+        },
+        "operationId": "39e18539-dc87-406b-8ece-bcd6b0367512"
       }
     }
   }
