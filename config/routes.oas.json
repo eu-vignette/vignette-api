@@ -1050,6 +1050,7 @@
           },
           "policies": {
             "inbound": [
+              "insert-order-policy",
               "partner-api-key",
               "partner-policy-key"
             ]
