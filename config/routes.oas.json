@@ -344,11 +344,7 @@
           },
           "profit": {
             "type": "number",
-            "example": 477.55
-          },
-          "fee": {
-            "type": "number",
-            "example": 477.55
+            "example": 2.55
           }
         }
       },
@@ -661,7 +657,8 @@
                 "cars": [
                   {
                     "plate": "AA4544AA",
-                    "country": "ua"
+                    "country": "ua",
+                    "provider_id": "101001011"
                   }
                 ],
                 "purchase_date": 1690125206,
@@ -678,7 +675,13 @@
                 "cars": [
                   {
                     "plate": "AA4544AA",
-                    "country": "ua"
+                    "country": "ua",
+                    "provider_id": "101001011"
+                  },
+                  {
+                    "plate": "AA4544XX",
+                    "country": "ua",
+                    "provider_id": "101001999"
                   }
                 ],
                 "purchase_date": 1690125244,
@@ -903,7 +906,7 @@
       },
       "get": {
         "summary": "User Orders",
-        "description": "An array of all vignettes for a specific user. \n\n **• Statuses** \n\n Each vignette can have one of the statuses: \n `ACTIVE`, `EXPIRED`, `PENDING`, `UNPAID` \n\n `ACTIVE` - This status indicates that the vignette is currently in use. It's active and functioning as expected. \n\n `EXPIRED` - This status signifies that the vignette is no longer active or valid. This could be due to a time limit that has been exceeded or a condition that is no longer met. \n\n `PENDING` - This status means that the vignette is awaiting further action or approval. It's **not yet active**, but it's in a queue or waiting list for processing.\n\n `UNPAID` - This status indicates that payment for the vignette is due. The vignette might not be active or accessible until the payment is made. \n\n **• Unique vignette id** \n\n `provider_id` is a string represented unique vignette id in national providers system in diferent formats",
+        "description": "An array of all vignettes for a specific user. \n\n **• Statuses** \n\n Each vignette can have one of the statuses: \n `ACTIVE`, `EXPIRED`, `PENDING`, `REFUNDED`, `DELETED` \n\n `ACTIVE` - This status indicates that the vignette is currently in use. It's active and functioning as expected. \n\n `EXPIRED` - This status signifies that the vignette is no longer active or valid. This could be due to a time limit that has been exceeded or a condition that is no longer met. \n\n `PENDING` - This status means that the vignette is awaiting further action or approval. It's **not yet active**, but it's in a queue or waiting list for processing.\n\n `REFUNDED` - This status indicates that payment for the vignette is due. The vignette might not be active or accessible until the payment is made.\n\n `DELETED` - This status indicates that...  \n\n **• Unique vignette id** \n\n `provider_id` is a string represented unique vignette id in national providers system in diferent formats",
         "x-zuplo-route": {
           "corsPolicy": "none",
           "handler": {
