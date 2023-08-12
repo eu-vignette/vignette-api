@@ -442,13 +442,8 @@
                 },
                 "country": {
                   "type": "string",
-                  "description": "Car registration country code. Use two letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes](https://vignette-api-main-982aec0.d2.zuplo.dev/docs/routes/countries)",
+                  "description": "Car registration country code. Use two lowercase(!) letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes. IMPORTANT to read](https://vignette-api-main-982aec0.d2.zuplo.dev/docs/routes/countries)",
                   "example": "ua"
-                },
-                "provider_id": {
-                  "type": "string",
-                  "description": "Car registration country code. Use two letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes](https://vignette-api-main-982aec0.d2.zuplo.dev/docs/routes/countries)",
-                  "example": "J7MH26M"
                 }
               }
             }
