@@ -477,7 +477,7 @@
                 },
                 "period": {
                   "type": "integer",
-                  "description": "Period of vignette. Available periods depend on the country. \n Possible options `7`, `10`, `30`, `60`, `90`, `180`, `365`. \n\n To check options - use endpoint `/public/products -> price`",
+                  "description": "Period of vignette. Available periods depend on the country. \n Possible options `7`, `10`, `30`, `60`, `90`, `180`, `365`. \n\n To check options - use endpoint `/public/products -> price` \n\n [More about country periods](https://vignette-api-main-982aec0.d2.zuplo.dev/docs/routes/vignette-covered-countries) \n\n [More](/docs/routes/vignette-covered-countries) \n\n [Moreeee](docs/routes/vignette-covered-countries)",
                   "example": 30
                 }
               }

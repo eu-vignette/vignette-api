@@ -16,13 +16,13 @@ But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette v
 
 In Austria we also support the possibility of paying for tunnels:
 
-| Tunnel          | Description   | 1 trip  | 2 trips  | 1 Year  |
-| --------------- | ------------- | ------- | -------- | ------- |
-|        A9       |   Pyhrn       |   yes   |    yes   |   yes   |
-|        A10      |   Tauern      |   yes   |    yes   |   yes   |
-|        A11      |   Karawanken  |   yes   |    no    |   no    |
-|        A13      |   Brenner     |   yes   |    yes   |   yes   |
-|        S16      |   Arlberg     |   yes   |    yes   |   yes   |
+| Tunnel          | Description   | 1 trip  | 2 trips  | 1 Year  |  Status  |
+| --------------- | ------------- | ------- | -------- | ------- | -------- |
+|        A9       |   Pyhrn       |   yes   |    yes   |   yes   |   Open   |
+|        A10      |   Tauern      |   yes   |    yes   |   yes   |   Open   |
+|        A11      |   Karawanken  |   yes   |    no    |   no    |   Open   |
+|        A13      |   Brenner     |   yes   |    yes   |   yes   |   Open   |
+|        S16      |   Arlberg     |   yes   |    yes   |   yes   |   Closed |
 
 A11 Karawanken has option e-payment only if customer trip from Austria to Slovenia
 
@@ -83,6 +83,8 @@ Slovenia has 3 available periods
 30 days
 
 365 days
+In this period vignette available from selected start date + 365 days.
+Example, if customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
 
 180 days available only for Motorcicle
 
