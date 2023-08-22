@@ -18,6 +18,11 @@
       "type": "doc",
       "id": "countries",
       "label": "Country codes"
+    },
+    {
+      "type": "doc",
+      "id": "vignette-covered-countries",
+      "label": "Vignette ID covered countries"
     }
   ]
 }
