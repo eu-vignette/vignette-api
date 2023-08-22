@@ -286,42 +286,52 @@
             },
             "result": [
               {
-                "id": "14ld15vqxt",
-                "custom_id": "partner-000001",
-                "user_id": "j28ho77yuh",
+                "id": "x2urgt1kt2",
+                "custom_id": "4911612692792",
+                "user_id": "947awo1z4c",
                 "cars": [
                   {
                     "plate": "AA4544AA",
                     "country": "ua",
-                    "provider_id": "001001001"
+                    "provider_id": "213308221128414692867",
+                    "pdf": "https://vignette.id/invoices/pdf/55729_awz4c1bawh_ext.pdf"
+                  },
+                  {
+                    "plate": "BA4544XX",
+                    "country": "ua",
+                    "provider_id": "213308221928414692867",
+                    "pdf": "https://vignette.id/invoices/pdf/55729_awz4c1bawh_ext.pdf"
                   }
                 ],
-                "purchase_date": 1685732010,
-                "start_from": 1688119200,
+                "purchase_date": 1692692847,
+                "start_date": 1692655200,
+                "end_date": 1693519199,
                 "period": "10",
                 "type": "vignette",
-                "country": "sk",
+                "country": "hu",
                 "status": "ACTIVE",
-                "receipt": "https://vignette.id/invoices/pdf/25878_2fqp7caugk.pdf"
+                "receipt": "https://vignette.id/invoices/pdf/55729_awz4c1bawh.pdf"
               },
               {
-                "id": "hqld85vqit",
-                "custom_id": "partner-000002",
-                "user_id": "j28ho77yuh",
+                "id": "m3lkr23ypd",
+                "custom_id": "4902692691867",
+                "user_id": "111awo2z1c",
                 "cars": [
                   {
-                    "plate": "AA4544AA",
-                    "country": "ua",
-                    "provider_id": "101001011"
+                    "plate": "C022KRU",
+                    "country": "ro",
+                    "provider_id": "T4LXSNL",
+                    "pdf": "https://vignette.id/invoices/pdf/55725_byc2x8jyhn_ext.pdf"
                   }
                 ],
-                "purchase_date": 1685732010,
-                "start_from": 1688119200,
-                "period": "2j",
-                "type": "tunnel",
-                "country": "at",
-                "status": "PENDING",
-                "receipt": "https://vignette.id/invoices/pdf/25878_2fqp7caugk.pdf"
+                "purchase_date": 1692691932,
+                "start_date": 1692655200,
+                "end_date": 1693519199,
+                "period": "10",
+                "type": "vignette",
+                "country": "cz",
+                "status": "ACTIVE",
+                "receipt": "https://vignette.id/invoices/pdf/55725_2gkkz18cn75.pdf"
               }
             ]
           }
@@ -437,12 +447,12 @@
               "properties": {
                 "plate": {
                   "type": "string",
-                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n German and Austrian license plates where the car number \n must contain a minus `-` sign. \n\n [More about car plate templates](https://vignette-api-main-982aec0.d2.zuplo.dev/docs/routes/patterns)",
+                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n German and Austrian license plates where the car number \n must contain a minus `-` sign. \n\n [More about car plate templates](/docs/routes/patterns)",
                   "example": "AA4544AA"
                 },
                 "country": {
                   "type": "string",
-                  "description": "Car registration country code. Use two lowercase(!) letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes. IMPORTANT to read](https://vignette-api-main-982aec0.d2.zuplo.dev/docs/routes/countries)",
+                  "description": "Car registration country code. Use two lowercase(!) letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes. IMPORTANT to read](/docs/routes/countries)",
                   "example": "ua"
                 }
               }
@@ -477,7 +487,7 @@
                 },
                 "period": {
                   "type": "integer",
-                  "description": "Period of vignette. Available periods depend on the country. \n Possible options `7`, `10`, `30`, `60`, `90`, `180`, `365`. \n\n To check options - use endpoint `/public/products -> price` \n\n [More about country periods](https://vignette-api-main-982aec0.d2.zuplo.dev/docs/routes/vignette-covered-countries) \n\n [More](/docs/routes/vignette-covered-countries) \n\n [Moreeee](docs/routes/vignette-covered-countries)",
+                  "description": "Period of vignette. Available periods depend on the country. \n Possible options `7`, `10`, `30`, `60`, `90`, `180`, `365`. \n\n To check options - use endpoint `/public/products -> price` \n\n [More about country periods](/docs/routes/vignette-covered-countries)",
                   "example": 30
                 }
               }
@@ -566,8 +576,11 @@
                     },
                     "provider_id": {
                       "type": "string",
-                      "description": "Car registration country code. Use two letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes](https://vignette-api-main-982aec0.d2.zuplo.dev/docs/routes/countries)",
+                      "description": "Car registration country code. Use two letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes](/docs/routes/countries)",
                       "example": "J7MH26M"
+                    },
+                    "pdf": {
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -579,7 +592,10 @@
               "purchase_date": {
                 "type": "integer"
               },
-              "start_from": {
+              "start_date": {
+                "type": "integer"
+              },
+              "end_date": {
                 "type": "integer"
               },
               "period": {
@@ -603,25 +619,60 @@
         "examples": [
           {
             "error": null,
-            "result": {
-              "id": "1k99i2ddy6",
-              "custom_id": "partnername-000001",
-              "user_id": "j28ho77yuh",
-              "cars": [
-                {
-                  "plate": "LJXXXXX",
-                  "country": "si",
-                  "provider_id": "001001001"
-                }
-              ],
-              "purchase_date": 1688417000,
-              "start_from": 1688983200,
-              "period": "10",
-              "type": "vignette",
-              "country": "hu",
-              "status": "ACTIVE",
-              "receipt": "https://vignette.id/invoices/pdf/25878_2fqp7caugk.pdf"
-            }
+            "pages": {
+              "total": 1,
+              "current": 1
+            },
+            "result": [
+              {
+                "id": "x2urgt1kt2",
+                "custom_id": "4911612692792",
+                "user_id": "947awo1z4c",
+                "cars": [
+                  {
+                    "plate": "AA4544AA",
+                    "country": "ua",
+                    "provider_id": "213308221128414692867",
+                    "pdf": "https://vignette.id/invoices/pdf/55729_awz4c1bawh_ext.pdf"
+                  },
+                  {
+                    "plate": "BA4544XX",
+                    "country": "ua",
+                    "provider_id": "213308221928414692867",
+                    "pdf": "https://vignette.id/invoices/pdf/55729_awz4c1bawh_ext.pdf"
+                  }
+                ],
+                "purchase_date": 1692692847,
+                "start_date": 1692655200,
+                "end_date": 1693519199,
+                "period": "10",
+                "type": "vignette",
+                "country": "hu",
+                "status": "ACTIVE",
+                "receipt": "https://vignette.id/invoices/pdf/55729_awz4c1bawh.pdf"
+              },
+              {
+                "id": "m3lkr23ypd",
+                "custom_id": "4902692691867",
+                "user_id": "111awo2z1c",
+                "cars": [
+                  {
+                    "plate": "C022KRU",
+                    "country": "ro",
+                    "provider_id": "T4LXSNL",
+                    "pdf": "https://vignette.id/invoices/pdf/55725_byc2x8jyhn_ext.pdf"
+                  }
+                ],
+                "purchase_date": 1692691932,
+                "start_date": 1692655200,
+                "end_date": 1693519199,
+                "period": "10",
+                "type": "vignette",
+                "country": "cz",
+                "status": "ACTIVE",
+                "receipt": "https://vignette.id/invoices/pdf/55725_2gkkz18cn75.pdf"
+              }
+            ]
           }
         ]
       },
@@ -647,45 +698,52 @@
             },
             "result": [
               {
-                "id": "tniywd35iy",
-                "custom_id": "pwk-001999",
+                "id": "x2urgt1kt2",
+                "custom_id": "4911612692792",
+                "user_id": "947awo1z4c",
                 "cars": [
                   {
                     "plate": "AA4544AA",
                     "country": "ua",
-                    "provider_id": "101001011"
-                  }
-                ],
-                "purchase_date": 1690125206,
-                "start_from": 1690125300,
-                "period": "30",
-                "type": "vignette",
-                "country": "hu",
-                "status": "ACTIVE",
-                "receipt": "https://vignette.id/invoices/pdf/25878_2fqp7caugk.pdf"
-              },
-              {
-                "id": "i02t14fuya",
-                "custom_id": "pwk-000001",
-                "cars": [
-                  {
-                    "plate": "AA4544AA",
-                    "country": "ua",
-                    "provider_id": "101001011"
+                    "provider_id": "213308221128414692867",
+                    "pdf": "https://vignette.id/invoices/pdf/55729_awz4c1bawh_ext.pdf"
                   },
                   {
-                    "plate": "AA4544XX",
+                    "plate": "BA4544XX",
                     "country": "ua",
-                    "provider_id": "101001999"
+                    "provider_id": "213308221928414692867",
+                    "pdf": "https://vignette.id/invoices/pdf/55729_awz4c1bawh_ext.pdf"
                   }
                 ],
-                "purchase_date": 1690125244,
-                "start_from": 1690125300,
-                "period": "30",
+                "purchase_date": 1692692847,
+                "start_date": 1692655200,
+                "end_date": 1693519199,
+                "period": "10",
                 "type": "vignette",
                 "country": "hu",
                 "status": "ACTIVE",
-                "receipt": "https://vignette.id/invoices/pdf/25878_2fqp7caugk.pdf"
+                "receipt": "https://vignette.id/invoices/pdf/55729_awz4c1bawh.pdf"
+              },
+              {
+                "id": "m3lkr23ypd",
+                "custom_id": "4902692691867",
+                "user_id": "111awo2z1c",
+                "cars": [
+                  {
+                    "plate": "C022KRU",
+                    "country": "ro",
+                    "provider_id": "T4LXSNL",
+                    "pdf": "https://vignette.id/invoices/pdf/55725_byc2x8jyhn_ext.pdf"
+                  }
+                ],
+                "purchase_date": 1692691932,
+                "start_date": 1692655200,
+                "end_date": 1693519199,
+                "period": "10",
+                "type": "vignette",
+                "country": "cz",
+                "status": "ACTIVE",
+                "receipt": "https://vignette.id/invoices/pdf/55725_2gkkz18cn75.pdf"
               }
             ]
           }
@@ -826,7 +884,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Todos with creating user data attached",
+            "description": "Produscts description test",
             "content": {
               "application/json": {
                 "schema": {
@@ -883,7 +941,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Todos with creating user data attached",
+            "description": "Users description test",
             "content": {
               "application/json": {
                 "schema": {
@@ -932,7 +990,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Todos with creating user data attached",
+            "description": "Users - orders description test",
             "content": {
               "application/json": {
                 "schema": {
@@ -1008,7 +1066,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The created todo list item",
+            "description": "Specific order description test",
             "content": {
               "application/json": {
                 "schema": {
