@@ -27,9 +27,9 @@ In Austria we also support the possibility of paying for tunnels:
 |        A13      |   Brenner     |   yes   |    yes   |   yes   |   Open   |
 |        S16      |   Arlberg     |   yes   |    yes   |   yes   |   **Closed** |
 
-A11 Karawanken has option e-payment only if customer trip from Austria to Slovenia
+- A11 Karawanken has option e-payment only if customer trip from Austria to Slovenia
 
-## Switzerland
+## 🇨🇭 Switzerland
 
 365 days
 In this period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
@@ -38,7 +38,7 @@ Example, if customer buy annual vignette **02.04.2023** OR **30.11.2023** this v
 But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette valid until **31.01.2025**
 
 
-## Slovakia
+## 🇸🇰 Slovakia
 
 Slovakia has 3 available periods
 
@@ -53,7 +53,7 @@ Example, if customer buy annual vignette **02.04.2023** OR **30.11.2023** this v
 But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette valid until **31.01.2025**
 
 
-## Hungary
+## 🇭🇺 Hungary
 
 Hungary has 3 available periods
 
@@ -67,7 +67,7 @@ In this period vignette available from selected start date to 31.01.**xx** - whe
 Example, if customer buy annual vignette **02.04.2023** OR **30.11.2023** this vignette valid until **31.01.2024** 
 But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette valid until **31.01.2025**
 
-## Czech Republic
+## 🇨🇿 Czech Republic
 
 Czech Republic has 3 available periods
 
@@ -80,7 +80,7 @@ In this period vignette available from selected **start date + 365 days**.
 Example, if customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
 
 
-## Slovenia
+## 🇸🇮 Slovenia
 
 Slovenia has 3 available periods
 
@@ -94,7 +94,7 @@ Example, if customer buy annual vignette **02.04.2023** this vignette valid unti
 
 180 days available only for Motorcicle
 
-## Bulgaria
+## 🇧🇬 Bulgaria
 
 Bulgaria has 4 available periods
 
@@ -109,6 +109,6 @@ In this period vignette available from selected **start date + 365 days**.
 Example, if customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
 
 
-## Romania
+## 🇷🇴 Romania
 
 In Romania we supported only 7 day period
