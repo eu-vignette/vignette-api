@@ -1,6 +1,6 @@
 # Vignette ID covered countries
 
-**In all periods, the current purchase day is considered the first day of the period, **
+**In all periods, the current purchase day is considered the first day of the period,**
 **if the start date of the period has not been chosen in the future.**
 
 ## Austria
@@ -25,7 +25,7 @@ In Austria we also support the possibility of paying for tunnels:
 |        A10      |   Tauern      |   yes   |    yes   |   yes   |   Open   |
 |        A11      |   Karawanken  |   yes   |    no    |   no    |   Open   |
 |        A13      |   Brenner     |   yes   |    yes   |   yes   |   Open   |
-|        S16      |   Arlberg     |   yes   |    yes   |   yes   |   Closed |
+|        S16      |   Arlberg     |   yes   |    yes   |   yes   |   **Closed** |
 
 A11 Karawanken has option e-payment only if customer trip from Austria to Slovenia
 
