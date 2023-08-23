@@ -3,7 +3,7 @@
 **In all periods, the current purchase day is considered the first day of the period,**
 **if the start date of the period has not been chosen in the future.**
 
-## Austria
+## 🇦🇹 Austria
 
 Austria has 3 available periods
 
