@@ -14,7 +14,7 @@ Austria has 3 available periods
 365 days
 In this period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
 
-==Example:==
+💻 Example:
 
 If customer buy annual vignette **02.04.2023** OR **30.11.2023** this vignette valid until **31.01.2024**.
 But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette valid until **31.01.2025**
@@ -36,7 +36,7 @@ In Austria we also support the possibility of paying for tunnels:
 365 days
 In this period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
 
-==Example:==
+💻 Example:
 
 If customer buy annual vignette **02.04.2023** OR **30.11.2023** this vignette valid until **31.01.2024**.
 But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette valid until **31.01.2025**
@@ -53,7 +53,7 @@ Slovakia has 3 available periods
 365 days
 In this period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
 
-==Example:==
+💻 Example:
 
 If customer buy annual vignette **02.04.2023** OR **30.11.2023** this vignette valid until **31.01.2024**.
 But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette valid until **31.01.2025**
@@ -70,7 +70,7 @@ Hungary has 3 available periods
 365 days
 In this period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
 
-==Example:==
+💻 Example:
 
 If customer buy annual vignette **02.04.2023** OR **30.11.2023** this vignette valid until **31.01.2024**. 
 But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette valid until **31.01.2025**
@@ -102,7 +102,7 @@ Slovenia has 3 available periods
 365 days
 In this period vignette available from selected **start date + 365 days**.
 
-==Example:==
+💻 Example:
 
 If customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
 
@@ -121,7 +121,7 @@ Bulgaria has 4 available periods
 365 days
 In this period vignette available from selected **start date + 365 days**.
 
-==Example:==
+💻 Example:
 
 If customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
 
