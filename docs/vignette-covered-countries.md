@@ -1,5 +1,8 @@
 # Vignette ID covered countries
 
+**In all periods, the current purchase day is considered the first day of the period, **
+**if the start date of the period has not been chosen in the future.**
+
 ## Austria
 
 Austria has 3 available periods
@@ -73,6 +76,9 @@ Czech Republic has 3 available periods
 30 days
 
 365 days
+In this period vignette available from selected **start date + 365 days**.
+Example, if customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
+
 
 ## Slovenia
 
@@ -83,7 +89,7 @@ Slovenia has 3 available periods
 30 days
 
 365 days
-In this period vignette available from selected start date + 365 days.
+In this period vignette available from selected **start date + 365 days**.
 Example, if customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
 
 180 days available only for Motorcicle
@@ -99,6 +105,9 @@ Bulgaria has 4 available periods
 90 days
 
 365 days
+In this period vignette available from selected **start date + 365 days**.
+Example, if customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
+
 
 ## Romania
 

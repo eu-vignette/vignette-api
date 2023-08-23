@@ -76,7 +76,7 @@
         "description": "`id` of order in Vignette ID system or `custom_id` from Partner system",
         "required": true,
         "schema": {
-          "example": "6jgjhqqk58",
+          "example": "x2urgt1kt2",
           "type": "string"
         }
       },
@@ -452,7 +452,7 @@
                 },
                 "country": {
                   "type": "string",
-                  "description": "Car registration country code. Use two lowercase(!) letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes. IMPORTANT to read](/docs/routes/countries)",
+                  "description": "Car registration country code. Use **two lowercase**(!) letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes. IMPORTANT to read](/docs/routes/countries)",
                   "example": "ua"
                 }
               }
@@ -624,33 +624,6 @@
               "current": 1
             },
             "result": [
-              {
-                "id": "x2urgt1kt2",
-                "custom_id": "4911612692792",
-                "user_id": "947awo1z4c",
-                "cars": [
-                  {
-                    "plate": "AA4544AA",
-                    "country": "ua",
-                    "provider_id": "213308221128414692867",
-                    "pdf": "https://vignette.id/invoices/pdf/55729_awz4c1bawh_ext.pdf"
-                  },
-                  {
-                    "plate": "BA4544XX",
-                    "country": "ua",
-                    "provider_id": "213308221928414692867",
-                    "pdf": "https://vignette.id/invoices/pdf/55729_awz4c1bawh_ext.pdf"
-                  }
-                ],
-                "purchase_date": 1692692847,
-                "start_date": 1692655200,
-                "end_date": 1693519199,
-                "period": "10",
-                "type": "vignette",
-                "country": "hu",
-                "status": "ACTIVE",
-                "receipt": "https://vignette.id/invoices/pdf/55729_awz4c1bawh.pdf"
-              },
               {
                 "id": "m3lkr23ypd",
                 "custom_id": "4902692691867",
