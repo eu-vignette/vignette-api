@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "additionalProperties": false,
+  "required": [
+    "cars"
+  ],
+  "properties": {
+    "cars": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "plate": {
+            "type": "string",
+            "default": "",
+            "title": "The plate Schema",
+            "examples": ["LJ000ID"]
+          },
+          "country": {
+            "type": "string",
+            "default": "",
+            "title": "The country Schema",
+            "examples": ["si"]
+          }
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "cars": [
+        {
+          "plate": "AA4544AA",
+          "country": "ua"
+        }
+      ]
+    }
+  ]
+}

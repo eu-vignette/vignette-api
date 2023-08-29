@@ -29,6 +29,17 @@
       },
       "name": "partner-policy-key",
       "policyType": "set-headers-inbound"
+    },
+    {
+      "handler": {
+        "export": "ValidateJsonSchemaInbound",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "validator": "$import(./schemas/validate-vehicle-plate.json)"
+        }
+      },
+      "name": "validate-json-schema-inbound",
+      "policyType": "validate-json-schema-inbound"
     }
   ]
 }
