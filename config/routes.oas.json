@@ -438,6 +438,29 @@
           }
         ]
       },
+      "ResponseValidatePlateObject": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "null"
+          },
+          "result": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string",
+                "example": "Vehicle plate is valid"
+              }
+            }
+          }
+        },
+        "example": {
+          "error": null,
+          "result": {
+            "message": "Vehicle plate is valid"
+          }
+        }
+      },
       "InsertOrderObject": {
         "type": "object",
         "title": "Order Insert Schema",
@@ -1366,7 +1389,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseOrderObject"
+                  "$ref": "#/components/schemas/ResponseValidatePlateObject"
                 }
               }
             }
