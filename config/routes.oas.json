@@ -1278,7 +1278,7 @@
         }
       }
     },
-    "/validate-cars": {
+    "/public/validate-cars": {
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
