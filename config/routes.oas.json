@@ -429,27 +429,12 @@
         },
         "examples": [
           {
-            "terms_and_privacy_accepted": true,
-            "order_has_been_paid": true,
-            "email": "user@example.com",
             "cars": [
               {
                 "plate": "AA4544AA",
                 "country": "ua"
               }
-            ],
-            "products": [
-              {
-                "custom_id": "partnername-000001",
-                "name": "hu-vignette-d1",
-                "start_from": 1690711200,
-                "period": 30
-              }
-            ],
-            "interchange_fee": {
-              "amount": 0.33,
-              "currency": "EUR"
-            }
+            ]
           }
         ]
       },
@@ -1397,40 +1382,8 @@
                     "examples": [
                       {
                         "error": {
-                          "type": "auth_test",
-                          "message": "The order would be created in production"
-                        }
-                      },
-                      {
-                        "error": {
-                          "type": "pending_orders",
-                          "message": "You already have orders that are being processed"
-                        }
-                      },
-                      {
-                        "error": {
-                          "type": "invalid_custom_id",
-                          "message": "Custom id already exists",
-                          "index": 0
-                        }
-                      },
-                      {
-                        "error": {
-                          "type": "invalid_payment_fee",
-                          "message": "Invalid payment_fee"
-                        }
-                      },
-                      {
-                        "error": {
-                          "type": "invalid_start_from",
-                          "message": "Invalid product data",
-                          "index": 0
-                        }
-                      },
-                      {
-                        "error": {
-                          "type": "invalid_period",
-                          "message": "Invalid product data",
+                          "type": "invalid_cars",
+                          "message": "Invalid car data",
                           "index": 0
                         }
                       }
