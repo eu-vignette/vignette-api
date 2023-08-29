@@ -395,6 +395,64 @@
           }
         }
       },
+      "ValidatePlateObject": {
+        "type": "object",
+        "title": "Validate vehicle plate Schema",
+        "required": [
+          "cars"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "cars": {
+            "type": "array",
+            "description": "Array of cars with car plate and registration country.",
+            "items": {
+              "type": "object",
+              "required": [
+                "plate",
+                "country"
+              ],
+              "properties": {
+                "plate": {
+                  "type": "string",
+                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n German and Austrian license plates where the car number \n must contain a minus `-` sign. \n\n [More about car plate templates](/docs/routes/patterns)",
+                  "example": "AA4544AA"
+                },
+                "country": {
+                  "type": "string",
+                  "description": "Car registration country code. Use **two lowercase**(!) letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes. IMPORTANT to read](/docs/routes/countries)",
+                  "example": "ua"
+                }
+              }
+            }
+          }
+        },
+        "examples": [
+          {
+            "terms_and_privacy_accepted": true,
+            "order_has_been_paid": true,
+            "email": "user@example.com",
+            "cars": [
+              {
+                "plate": "AA4544AA",
+                "country": "ua"
+              }
+            ],
+            "products": [
+              {
+                "custom_id": "partnername-000001",
+                "name": "hu-vignette-d1",
+                "start_from": 1690711200,
+                "period": 30
+              }
+            ],
+            "interchange_fee": {
+              "amount": 0.33,
+              "currency": "EUR"
+            }
+          }
+        ]
+      },
       "InsertOrderObject": {
         "type": "object",
         "title": "Order Insert Schema",
@@ -1284,7 +1342,7 @@
       },
       "post": {
         "summary": "Validate vehicles",
-        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "description": "Validate vehicle plate",
         "x-zuplo-route": {
           "corsPolicy": "none",
           "handler": {
@@ -1296,12 +1354,103 @@
           },
           "policies": {
             "inbound": [
+              "validate-json-schema-inbound",
               "partner-api-key",
               "partner-policy-key"
             ]
           }
         },
-        "operationId": "21a270c9-3c04-42c3-9e19-6e8564f90439"
+        "operationId": "21a270c9-3c04-42c3-9e19-6e8564f90439",
+        "tags": [
+          "Standard Partner List Endpoints"
+        ],
+        "requestBody": {
+          "description": "Payload required to validate a car plate.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidatePlateObject"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseOrderObject"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Schema validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "examples": [
+                      {
+                        "error": {
+                          "type": "auth_test",
+                          "message": "The order would be created in production"
+                        }
+                      },
+                      {
+                        "error": {
+                          "type": "pending_orders",
+                          "message": "You already have orders that are being processed"
+                        }
+                      },
+                      {
+                        "error": {
+                          "type": "invalid_custom_id",
+                          "message": "Custom id already exists",
+                          "index": 0
+                        }
+                      },
+                      {
+                        "error": {
+                          "type": "invalid_payment_fee",
+                          "message": "Invalid payment_fee"
+                        }
+                      },
+                      {
+                        "error": {
+                          "type": "invalid_start_from",
+                          "message": "Invalid product data",
+                          "index": 0
+                        }
+                      },
+                      {
+                        "error": {
+                          "type": "invalid_period",
+                          "message": "Invalid product data",
+                          "index": 0
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundError"
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
