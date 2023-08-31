@@ -99,6 +99,17 @@
           "default": "UAH",
           "type": "string"
         }
+      },
+      "BugReport": {
+        "name": "bug_report",
+        "in": "query",
+        "description": "Use with all endpoints to inform us for bugs in API ",
+        "required": false,
+        "schema": {
+          "example": "true",
+          "default": "false",
+          "type": "boolean"
+        }
       }
     },
     "schemas": {
@@ -1155,6 +1166,11 @@
         "tags": [
           "Standard Partner List Endpoints"
         ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/BugReport"
+          }
+        ],
         "requestBody": {
           "description": "Payload required to create a new order.",
           "required": true,
@@ -1371,6 +1387,11 @@
         "operationId": "21a270c9-3c04-42c3-9e19-6e8564f90439",
         "tags": [
           "Standard Partner List Endpoints"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/BugReport"
+          }
         ],
         "requestBody": {
           "description": "Payload required to validate a car plate.",
