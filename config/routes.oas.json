@@ -554,7 +554,7 @@
                 "name": {
                   "type": "string",
                   "description": "Country of vignette. \n\n To check options - use endpoint `/public/products -> name`",
-                  "example": "hu-vignette-d1"
+                  "example": "vignette-hu-2a"
                 },
                 "start_from": {
                   "type": "integer",
@@ -610,7 +610,7 @@
             "products": [
               {
                 "custom_id": "partnername-000001",
-                "name": "hu-vignette-d1",
+                "name": "vignette-si-2a",
                 "start_from": 1690711200,
                 "period": 30
               }
