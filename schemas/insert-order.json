@@ -70,7 +70,7 @@
             "type": "string",
             "default": "",
             "title": "Name of vignette",
-            "examples": ["hu-vignette-d1"]
+            "examples": ["vignette-si-2a"]
           },
           "start_from": {
             "type": "integer",
@@ -136,7 +136,7 @@
       "products": [
         {
           "custom_id": "partnername-000001",
-          "name": "hu-vignette-d1",
+          "name": "vignette-si-2a",
           "start_from": 1690711200,
           "period": 30
         }

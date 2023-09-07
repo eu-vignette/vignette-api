@@ -23,6 +23,11 @@
       "type": "doc",
       "id": "vignette-covered-countries",
       "label": "Vignette ID covered countries"
+    },
+    {
+      "type": "doc",
+      "id": "products",
+      "label": "Vignette ID products naming"
     }
   ]
 }
