@@ -31,24 +31,8 @@ In Austria we also support the possibility of paying for tunnels:
 
 - A11 Karawanken has option e-payment only if customer trip from Austria to Slovenia
 
+
 ## 🇨🇭 Switzerland
-
-365 days
-In this period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
-
-💻 Example:
-
-If customer buy annual vignette **02.04.2023** OR **30.11.2023** this vignette valid until **31.01.2024**.
-But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette valid until **31.01.2025**
-
-
-## 🇸🇰 Slovakia
-
-Slovakia has 3 available periods
-
-10 days
-
-30 days
 
 365 days
 In this period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
@@ -74,6 +58,24 @@ In this period vignette available from selected start date to 31.01.**xx** - whe
 
 If customer buy annual vignette **02.04.2023** OR **30.11.2023** this vignette valid until **31.01.2024**. 
 But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette valid until **31.01.2025**
+
+
+## 🇸🇰 Slovakia
+
+Slovakia has 3 available periods
+
+10 days
+
+30 days
+
+365 days
+In this period vignette available from selected **start date + 365 days**.
+
+💻 Example:
+
+If customer buy annual vignette **02.04.2023** OR **30.11.2023** this vignette valid until **31.01.2024**.
+But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette valid until **31.01.2025**
+
 
 ## 🇨🇿 Czech Republic
 
@@ -107,6 +109,7 @@ In this period vignette available from selected **start date + 365 days**.
 If customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
 
 180 days available only for Motorcicle
+
 
 ## 🇧🇬 Bulgaria
 
