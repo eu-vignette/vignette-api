@@ -73,8 +73,7 @@ In this period vignette available from selected **start date + 365 days**.
 
 💻 Example:
 
-If customer buy annual vignette **02.04.2023** OR **30.11.2023** this vignette valid until **31.01.2024**.
-But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette valid until **31.01.2025**
+If customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
 
 
 ## 🇨🇿 Czech Republic
@@ -88,7 +87,7 @@ Czech Republic has 3 available periods
 365 days
 In this period vignette available from selected **start date + 365 days**.
 
-==Example:==
+💻 Example:
 
 If customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
 
