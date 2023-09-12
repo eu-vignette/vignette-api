@@ -25,12 +25,20 @@
   ],
   "tags": [
     {
-      "name": "Standard Partner List Endpoints",
-      "description": "Standard endpoints for managing Users, Orders and Products"
+      "name": "Product List Endpoints",
+      "description": "Endpoints for interacting with products"
     },
     {
-      "name": "Extended Partner List Endpoints",
-      "description": "Extended endpoints."
+      "name": "Users List Endpoints",
+      "description": "Endpoints for interacting with Users"
+    },
+    {
+      "name": "Orders List Endpoints",
+      "description": "Endpoints for interacting with orders"
+    },
+    {
+      "name": "Extended List Endpoints",
+      "description": "Extended endpoints"
     }
   ],
   "components": {
@@ -426,7 +434,7 @@
               "properties": {
                 "plate": {
                   "type": "string",
-                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n German and Austrian license plates where the car number \n must contain a minus `-` sign. \n\n [More about car plate templates](/docs/routes/patterns)",
+                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n `German` and `Austrian` license plates where the car number \n must contain a minus `-` sign. \n\n [More about car plate templates](/docs/routes/patterns)",
                   "example": "AA4544AA"
                 },
                 "country": {
@@ -524,7 +532,7 @@
               "properties": {
                 "plate": {
                   "type": "string",
-                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n German and Austrian license plates where the car number \n must contain a minus `-` sign. \n\n [More about car plate templates](/docs/routes/patterns)",
+                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n `German` and `Austrian` license plates where the car number \n must contain a minus `-` sign. \n\n [More about car plate templates](/docs/routes/patterns)",
                   "example": "AA4544AA"
                 },
                 "country": {
@@ -925,7 +933,7 @@
         },
         "operationId": "e944b9b8-83e3-4d61-8b88-d5c6fe386102",
         "tags": [
-          "Standard Partner List Endpoints"
+          "Product List Endpoints"
         ],
         "parameters": [
           {
@@ -982,7 +990,7 @@
         },
         "operationId": "8f60c186-5b98-4f6c-bb82-4fa2cf727128",
         "tags": [
-          "Standard Partner List Endpoints"
+          "Users List Endpoints"
         ],
         "parameters": [
           {
@@ -1028,7 +1036,7 @@
         },
         "operationId": "af8c28f2-da4f-41ae-9303-37104d89a5b5",
         "tags": [
-          "Standard Partner List Endpoints"
+          "Users List Endpoints"
         ],
         "parameters": [
           {
@@ -1082,62 +1090,6 @@
         }
       }
     },
-    "/public/orders/:id": {
-      "x-zuplo-path": {
-        "pathMode": "open-api"
-      },
-      "get": {
-        "summary": "Get Order",
-        "description": " • `id` - order id in Vignette ID system \n\n • `custom_id` - order id in Partner system\n\n • `provider_id` - unique vignette id in national (government) providers systems \n\n",
-        "x-zuplo-route": {
-          "corsPolicy": "none",
-          "handler": {
-            "export": "urlForwardHandler",
-            "module": "$import(@zuplo/runtime)",
-            "options": {
-              "baseUrl": "${env.BASE_URL}"
-            }
-          },
-          "policies": {
-            "inbound": [
-              "partner-api-key",
-              "partner-policy-key"
-            ]
-          }
-        },
-        "operationId": "4400136d-c3df-42e2-8fb9-f766ee4f51e4",
-        "tags": [
-          "Standard Partner List Endpoints"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/OrderIdOrCustomId"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Specific order description test",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OrderObject"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotFoundError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/public/orders": {
       "x-zuplo-path": {
         "pathMode": "open-api"
@@ -1164,7 +1116,7 @@
         },
         "operationId": "a5e610d2-d515-4f71-b8f3-e2a539405bd9",
         "tags": [
-          "Standard Partner List Endpoints"
+          "Orders List Endpoints"
         ],
         "parameters": [
           {
@@ -1280,7 +1232,7 @@
         },
         "operationId": "39e18539-dc87-406b-8ece-bcd6b0367512",
         "tags": [
-          "Standard Partner List Endpoints"
+          "Orders List Endpoints"
         ],
         "responses": {
           "200": {
@@ -1360,6 +1312,118 @@
         }
       }
     },
+    "/public/orders/:id": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Get Order",
+        "description": " • `id` - order id in Vignette ID system \n\n • `custom_id` - order id in Partner system\n\n • `provider_id` - unique vignette id in national (government) providers systems \n\n",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "partner-api-key",
+              "partner-policy-key"
+            ]
+          }
+        },
+        "operationId": "4400136d-c3df-42e2-8fb9-f766ee4f51e4",
+        "tags": [
+          "Orders List Endpoints"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/OrderIdOrCustomId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Specific order description test",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderObject"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public/orders/:id/cancel": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "Cancel Pending Order",
+        "description": "The ability to cancel an order that has a pending status if it is not processed within the specified time period\n\n • `PENDING` - only ",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "partner-api-key",
+              "partner-policy-key"
+            ]
+          }
+        },
+        "operationId": "4a803090-9826-469c-9127-2dc09aca52c6",
+        "tags": [
+          "Orders List Endpoints"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/OrderIdOrCustomId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Specific order description test",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderObject"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/public/validate-cars": {
       "x-zuplo-path": {
         "pathMode": "open-api"
@@ -1386,7 +1450,7 @@
         },
         "operationId": "21a270c9-3c04-42c3-9e19-6e8564f90439",
         "tags": [
-          "Standard Partner List Endpoints"
+          "Extended List Endpoints"
         ],
         "parameters": [
           {
@@ -1448,6 +1512,33 @@
             }
           }
         }
+      }
+    },
+    "/public/validate-vehicle": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "Validate vehicles",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "validate-json-schema-inbound",
+              "partner-api-key",
+              "partner-policy-key"
+            ]
+          }
+        },
+        "operationId": "a1f9297e-c96d-42c6-8600-b807f55a9572"
       }
     }
   }
