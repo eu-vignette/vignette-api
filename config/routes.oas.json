@@ -26,19 +26,19 @@
   "tags": [
     {
       "name": "Products List Endpoints",
-      "description": "Endpoints for interacting with products"
+      "description": "Endpoints for interacting with products."
     },
     {
       "name": "Users List Endpoints",
-      "description": "Endpoints for interacting with Users"
+      "description": "Endpoints for interacting with Users."
     },
     {
       "name": "Orders List Endpoints",
-      "description": "Endpoints for interacting with orders"
+      "description": "Endpoints for interacting with orders."
     },
     {
       "name": "Extended List Endpoints",
-      "description": "Extended endpoints"
+      "description": "Extended endpoints."
     }
   ],
   "components": {
