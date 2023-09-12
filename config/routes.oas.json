@@ -25,7 +25,7 @@
   ],
   "tags": [
     {
-      "name": "Product List Endpoints",
+      "name": "Products List Endpoints",
       "description": "Endpoints for interacting with products"
     },
     {
@@ -1342,6 +1342,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/OrderIdOrCustomId"
+          },
+          {
+            "$ref": "#/components/parameters/BugReport"
           }
         ],
         "responses": {
@@ -1398,6 +1401,9 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/OrderIdOrCustomId"
+          },
+          {
+            "$ref": "#/components/parameters/BugReport"
           }
         ],
         "responses": {
@@ -1538,7 +1544,70 @@
             ]
           }
         },
-        "operationId": "a1f9297e-c96d-42c6-8600-b807f55a9572"
+        "operationId": "a1f9297e-c96d-42c6-8600-b807f55a9572",
+        "tags": [
+          "Extended List Endpoints"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/BugReport"
+          }
+        ],
+        "requestBody": {
+          "description": "Payload required to validate a car plate.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidatePlateObject"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseValidatePlateObject"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Schema validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "examples": [
+                      {
+                        "error": {
+                          "type": "invalid_cars",
+                          "message": "Invalid car data",
+                          "index": 0
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundError"
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
