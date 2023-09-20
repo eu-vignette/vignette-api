@@ -79,7 +79,7 @@
             "examples": [1690711200]
           },
           "period": {
-            "type": "integer",
+            "type": ["integer", "string"],
             "default": 0,
             "title": "Days amount in period",
             "examples": [30]
