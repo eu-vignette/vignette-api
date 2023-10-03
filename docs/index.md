@@ -1,4 +1,4 @@
-![alt text for screen readers](https://vignette.id/img/email-logo.png "Text to show on mouseover")
+![Vignette ID](https://vignette.id/img/email-logo.png "Text to show on mouseover")
 
 ## The Ultimate Solution for Road Payment in Europe
 
@@ -6,6 +6,9 @@ Vignette ID is a system that simplifies the process of paying for road use in Eu
 
 The first system of its kind to pay for roads in eight European countries: Slovenia, Austria, Switzerland, Slovakia, 
 Czech Republic, Hungary, Bulgaria, Romania, as well as tunnels in Austria in just a few minutes.
+
+![Vignette ID covered countries](https://github.com/eu-vignette/.github/blob/main/profile/map.png "Text to show on mouseover")
+
 
 We provide a solution that allows the user to buy a vignette for several cars and countries at the same time.
 
@@ -27,9 +30,9 @@ In order to start using our API and become our partner, we ask you to read the d
 
 ## Company Information
 
-PD Business Services FZ LLC \n\n
-P.O. Box: 77954 \n\n
-Abu Dhabi \n\n
+PD Business Services FZ LLC • 
+P.O. Box: 77954 • 
+Abu Dhabi • 
 United Arab Emirates
 
 <!-- 
