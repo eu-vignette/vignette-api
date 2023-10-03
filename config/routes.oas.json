@@ -571,8 +571,8 @@
                   "example": 1690711200
                 },
                 "period": {
-                  "type": "integer",
-                  "description": "Period of vignette. Available periods depend on the country. \n Possible options `7`, `10`, `30`, `60`, `90`, `180`, `365`. \n\n To check options - use endpoint `/public/products -> price` \n\n [More about country periods](/docs/routes/vignette-covered-countries)",
+                  "type": ["integer", "string"],
+                  "description": "Period of vignette. Available periods depend on the country. \n Possible options `7`, `10`, `30`, `60`, `90`, `180`, `365` days. \n\n For tunnels you can use `1j`, `2j` and `365`, where `j` mean **journey** \n\n To check options - use endpoint `/public/products -> price` \n\n [More about country periods](/docs/routes/vignette-covered-countries)",
                   "example": 30
                 }
               }
@@ -684,7 +684,7 @@
                 "type": "integer"
               },
               "period": {
-                "type": "string"
+                "type": ["integer", "string"]
               },
               "type": {
                 "type": "string"
@@ -914,7 +914,7 @@
       },
       "get": {
         "summary": "Products (vignettes and tunnels)",
-        "description": "All available products for customers in 7 European countries",
+        "description": "All available products (vignettes, tunnels, trains, ferries) for customers in 8 European countries",
         "x-zuplo-route": {
           "corsPolicy": "none",
           "handler": {
@@ -1413,96 +1413,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/OrderObject"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotFoundError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/public/validate-cars": {
-      "x-zuplo-path": {
-        "pathMode": "open-api"
-      },
-      "post": {
-        "summary": "Validate vehicles",
-        "description": "Validate vehicle plate",
-        "x-zuplo-route": {
-          "corsPolicy": "none",
-          "handler": {
-            "export": "urlForwardHandler",
-            "module": "$import(@zuplo/runtime)",
-            "options": {
-              "baseUrl": "${env.BASE_URL}"
-            }
-          },
-          "policies": {
-            "inbound": [
-              "validate-json-schema-inbound",
-              "partner-api-key",
-              "partner-policy-key"
-            ]
-          }
-        },
-        "operationId": "21a270c9-3c04-42c3-9e19-6e8564f90439",
-        "tags": [
-          "Extended List Endpoints"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/BugReport"
-          }
-        ],
-        "requestBody": {
-          "description": "Payload required to validate a car plate.",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ValidatePlateObject"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseValidatePlateObject"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Schema validation error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "examples": [
-                      {
-                        "error": {
-                          "type": "invalid_cars",
-                          "message": "Invalid car data",
-                          "index": 0
-                        }
-                      }
-                    ]
-                  }
                 }
               }
             }
