@@ -1213,7 +1213,7 @@
       },
       "get": {
         "summary": "Get Orders",
-        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "description": "This endpoint allows you to obtain a list of all partner orders with all the necessary information about the order",
         "x-zuplo-route": {
           "corsPolicy": "none",
           "handler": {
@@ -1436,7 +1436,7 @@
       },
       "post": {
         "summary": "Validate vehicles",
-        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "description": "Possibility to check the car number according to the selected country. \n\n [A list of acceptable car registration countries codes](/docs/routes/countries) in two letter format like `at`, `cz`, `pl`, `ua`... ",
         "x-zuplo-route": {
           "corsPolicy": "none",
           "handler": {
