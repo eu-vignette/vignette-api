@@ -1,4 +1,4 @@
-![Vignette ID](https://vignette.id/img/email-logo.png "Text to show on mouseover")
+![Vignette ID](https://vignette.id/img/email-logo.png "Vignette ID")
 
 ## The Ultimate Solution for Road Payment in Europe
 
@@ -7,8 +7,7 @@ Vignette ID is a system that simplifies the process of paying for road use in Eu
 The first system of its kind to pay for roads in eight European countries: Slovenia, Austria, Switzerland, Slovakia, 
 Czech Republic, Hungary, Bulgaria, Romania, as well as tunnels in Austria in just a few minutes.
 
-![Vignette ID covered countries](https://vignette.id/img/mapx4.png "Text to show on mouseover")
-
+![Vignette ID covered countries](https://vignette.id/img/mapx4.png "Vignette ID covered countries")
 
 We provide a solution that allows the user to buy a vignette for several cars and countries at the same time.
 
@@ -27,6 +26,7 @@ In order to start using our API and become our partner, we ask you to read the d
 
 ## Helpdesk for current and future partners
 
+For any support or API information, plese contact us on email • work+api+support@vignette.id
 
 ## Company Information
 

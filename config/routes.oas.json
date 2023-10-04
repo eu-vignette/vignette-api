@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Vignette ID Partner API",
-    "description": "Documentation describes the possibilities of connecting to the platform **Vignette ID** for the possibility of paying for the motorway in 7 European countries.",
+    "description": "Documentation describes the possibilities of connecting to the platform **Vignette ID** for the possibility of paying for the motorway in 8 European countries.",
     "contact": {
       "name": "API Support",
       "email": "work+api+support@vignette.id"
@@ -26,7 +26,7 @@
   "tags": [
     {
       "name": "Products List Endpoints",
-      "description": "Endpoints for interacting with products."
+      "description": "Endpoints for interacting with products. "
     },
     {
       "name": "Users List Endpoints",
@@ -104,7 +104,7 @@
         "required": false,
         "schema": {
           "example": "UAH",
-          "default": "UAH",
+          "default": "EUR",
           "type": "string"
         }
       },
@@ -434,7 +434,7 @@
               "properties": {
                 "plate": {
                   "type": "string",
-                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n `German` and `Austrian` license plates where the car number \n must contain a minus `-` sign. \n\n [More about car plate templates](/docs/routes/patterns)",
+                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n `German` and `Austrian` license plates where the car number \n must contain **one dash** `-` sign. \n\n [More about car plate templates](/docs/routes/patterns)",
                   "example": "AA4544AA"
                 },
                 "country": {
@@ -532,7 +532,7 @@
               "properties": {
                 "plate": {
                   "type": "string",
-                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n `German` and `Austrian` license plates where the car number \n must contain a minus `-` sign. \n\n [More about car plate templates](/docs/routes/patterns)",
+                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n `German` and `Austrian` license plates where the car number \n must contain **one dash** `-` sign. \n\n [More about car plate templates](/docs/routes/patterns)",
                   "example": "AA4544AA"
                 },
                 "country": {
@@ -550,7 +550,7 @@
               "type": "object",
               "required": [
                 "name",
-                "start_from",
+                "start_date",
                 "period"
               ],
               "properties": {
@@ -564,7 +564,7 @@
                   "description": "Country of vignette. \n\n To check options - use endpoint `/public/products -> name`",
                   "example": "vignette-hu-2a"
                 },
-                "start_from": {
+                "start_date": {
                   "type": "integer",
                   "format": "int64",
                   "description": "Start date of vignette in UNIX time",
@@ -619,7 +619,7 @@
               {
                 "custom_id": "partnername-000001",
                 "name": "vignette-si-2a",
-                "start_from": 1690711200,
+                "start_date": 1690711200,
                 "period": 30
               }
             ],
@@ -1181,7 +1181,7 @@
                       },
                       {
                         "error": {
-                          "type": "invalid_start_from",
+                          "type": "invalid_start_date",
                           "message": "Invalid product data",
                           "index": 0
                         }
@@ -1281,7 +1281,7 @@
                       },
                       {
                         "error": {
-                          "type": "invalid_start_from",
+                          "type": "invalid_start_date",
                           "message": "Invalid product data",
                           "index": 0
                         }
