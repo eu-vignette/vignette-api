@@ -1,5 +1,5 @@
 # Car plate country codes what we supported
-More about this format - https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements
+More about this format on [Wikipedia](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
 
 
 | Code | Country                 | Code | Country (not popular)   |
