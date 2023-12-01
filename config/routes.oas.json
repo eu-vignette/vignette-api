@@ -323,6 +323,7 @@
                   }
                 ],
                 "purchase_date": 1692692847,
+                "start_from": "WILL BE DEPRECATED. Use start_date",
                 "start_date": 1692655200,
                 "end_date": 1693519199,
                 "period": "10",
@@ -344,6 +345,7 @@
                   }
                 ],
                 "purchase_date": 1692691932,
+                "start_from": "WILL BE DEPRECATED. Use start_date",
                 "start_date": 1692655200,
                 "end_date": 1693519199,
                 "period": "10",
@@ -564,6 +566,12 @@
                   "description": "Country of vignette. \n\n To check options - use endpoint `/public/products -> name`",
                   "example": "vignette-hu-2a"
                 },
+                "start_from": {
+                  "type": "integer",
+                  "format": "int64",
+                  "description": " **Important!** WILL BE DEPRECATED. Use `start_date`",
+                  "example": 1690711200
+                },
                 "start_date": {
                   "type": "integer",
                   "format": "int64",
@@ -619,6 +627,7 @@
               {
                 "custom_id": "partnername-000001",
                 "name": "vignette-si-2a",
+                "start_from": "WILL BE DEPRECATED. Use start_date",
                 "start_date": 1690711200,
                 "period": 30
               }
@@ -722,6 +731,7 @@
                   }
                 ],
                 "purchase_date": 1692691932,
+                "start_from": "WILL BE DEPRECATED. Use start_date",
                 "start_date": 1692655200,
                 "end_date": 1693519199,
                 "period": "10",
@@ -774,6 +784,7 @@
                   }
                 ],
                 "purchase_date": 1692692847,
+                "start_from": "WILL BE DEPRECATED. Use start_date",
                 "start_date": 1692655200,
                 "end_date": 1693519199,
                 "period": "10",
@@ -795,6 +806,7 @@
                   }
                 ],
                 "purchase_date": 1692691932,
+                "start_from": "WILL BE DEPRECATED. Use start_date",
                 "start_date": 1692655200,
                 "end_date": 1693519199,
                 "period": "10",

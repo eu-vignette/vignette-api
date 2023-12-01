@@ -98,7 +98,8 @@
         }
       ],
       "purchase_date": null,
-      "start_from": 1680472800,
+      "start_from": "WILL BE DEPRECATED. Use start_date",
+      "start_date": 1680472800,
       "period": "30",
       "type": "vignette",
       "country": "si",
