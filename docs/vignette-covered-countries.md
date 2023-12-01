@@ -5,14 +5,16 @@
 
 ## 🇦🇹 Austria
 
-Austria has 3 available periods
+Austria has 4 available periods
+
+1 day
 
 10 days
 
 60 days
 
 365 days
-In this period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
+In year period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
 
 💻 Example:
 
@@ -25,17 +27,17 @@ In Austria we also support the possibility of paying for tunnels:
 | --------------- | ------------- | ------- | -------- | ------- | -------- |
 |        A9       |   Pyhrn       |   yes   |    yes   |   yes   |   Open   |
 |        A10      |   Tauern      |   yes   |    yes   |   yes   |   Open   |
-|        A11      |   Karawanken  |   yes   |    no    |   no    |   Open   |
+|        **A11**      |   **Karawanken**  |   yes   |    no    |   no    |   Open   |
 |        A13      |   Brenner     |   yes   |    yes   |   yes   |   Open   |
-|        S16      |   Arlberg     |   yes   |    yes   |   yes   |   **Closed** |
+|        S16      |   Arlberg     |   yes   |    yes   |   yes   |   Open   |
 
-- A11 Karawanken has option e-payment only if customer trip from Austria to Slovenia
+- **A11 Karawanken** has option e-payment only if customer trip from Austria to Slovenia
 
 
 ## 🇨🇭 Switzerland
 
 365 days
-In this period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
+In year period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
 
 💻 Example:
 
@@ -52,7 +54,7 @@ Hungary has 3 available periods
 30 days
 
 365 days
-In this period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
+In year period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
 
 💻 Example:
 
@@ -69,7 +71,7 @@ Slovakia has 3 available periods
 30 days
 
 365 days
-In this period vignette available from selected **start date + 365 days**.
+In year period vignette available from selected **start date + 365 days**.
 
 💻 Example:
 
@@ -85,7 +87,7 @@ Czech Republic has 3 available periods
 30 days
 
 365 days
-In this period vignette available from selected **start date + 365 days**.
+In year period vignette available from selected **start date + 365 days**.
 
 💻 Example:
 
@@ -101,7 +103,7 @@ Slovenia has 3 available periods
 30 days
 
 365 days
-In this period vignette available from selected **start date + 365 days**.
+In year period vignette available from selected **start date + 365 days**.
 
 💻 Example:
 
@@ -114,6 +116,8 @@ If customer buy annual vignette **02.04.2023** this vignette valid until **01.04
 
 Bulgaria has 4 available periods
 
+3 days (soon) - from 12:00 Friday until 23:59 Sunday
+
 7 days
 
 30 days
@@ -121,7 +125,7 @@ Bulgaria has 4 available periods
 90 days
 
 365 days
-In this period vignette available from selected **start date + 365 days**.
+In year period vignette available from selected **start date + 365 days**.
 
 💻 Example:
 
@@ -130,4 +134,16 @@ If customer buy annual vignette **02.04.2023** this vignette valid until **01.04
 
 ## 🇷🇴 Romania
 
-In Romania we supported only 7 day period
+Romania has 4 available periods
+
+7 days
+
+In next periods API waiting vin-code from car
+
+30 days
+
+90 days
+
+365 days
+In year period vignette available from selected **start date + 365 days**.
+
