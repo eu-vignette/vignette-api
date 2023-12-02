@@ -9,7 +9,7 @@ export default async function (
   options: MyPolicyOptionsType,
   policyName: string
 ) {
-  request.headers.set('authorization', 'Bearer ' + request.user.data['test_key']);
+  request.headers.set('authorization', 'Bearer ' + request.user.data['key']);
   request.headers.set('partnername', request.user.data['name']);
 
   return request;
