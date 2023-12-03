@@ -1,6 +1,6 @@
 # Car plate patterns
 
-‼️ **Important things!** ‼️
+**Important things!**
 
 - **All Austrian and German car plates must have a dash (-) symbol instead of a coat of arms ∇**
 - **Only capital letters A-Z and numbers 0-9 are used in the car plate**
@@ -95,4 +95,13 @@ Ukraine
 - **Only 10 letters are used on the righ side (i.e. series codes) these are: `A`, `B`, `E`, `K`, `M`, `H`, `P`, `C`, `T`, `X`.**
 
 [Read more on wikipedia](https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Bulgaria)
+
+# Vin-code patterns
+
+Romanian 30days, 90days, 365days vignettes requires vin-code from vehicle.
+
+The VIN code is a strictly designated pattern, the correctness of which also requires the user’s attention.
+You can [Read more on wikipedia](https://en.wikipedia.org/wiki/Vehicle_identification_number)
+
+Right now in "Beta mode" we only check the length of the VIN code, which should be 17 characters.
 
