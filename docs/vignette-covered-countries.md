@@ -138,7 +138,7 @@ Romania has 4 available periods
 
 7 days
 
-In next periods API waiting vin-code from car
+In next periods API waiting vin-code (required) from vehicle. [About vin-code patterns](/docs/routes/countries)
 
 30 days
 
