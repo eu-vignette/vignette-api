@@ -26,7 +26,7 @@
     "email": {
       "type": "string",
       "default": "",
-      "title": "The partner user email",
+      "title": "The partner user email. Must contain the user's real email",
       "examples": ["test@example.com"]
     },
     "custom_id": {

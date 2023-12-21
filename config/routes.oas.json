@@ -517,7 +517,7 @@
           "email": {
             "type": "string",
             "format": "email",
-            "description": "User's email for sending receipts or contacting in case of data errors.",
+            "description": "User's email is mandatory field. By default, any emails from our side are disabled.",
             "examples": [
               "user@gmail.com"
             ]
