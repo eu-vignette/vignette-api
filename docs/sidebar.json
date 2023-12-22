@@ -28,6 +28,11 @@
       "type": "doc",
       "id": "products",
       "label": "Vignette ID products naming"
+    },
+    {
+      "type": "doc",
+      "id": "last-updates",
+      "label": "Vignette ID API UPDATES"
     }
   ]
 }
