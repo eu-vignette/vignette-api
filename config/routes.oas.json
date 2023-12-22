@@ -426,7 +426,7 @@
         "properties": {
           "cars": {
             "type": "array",
-            "description": "Array of cars with car plate and registration country.",
+            "description": "Array of vehicles with vehicle plate and registration country.",
             "items": {
               "type": "object",
               "required": [
@@ -439,9 +439,14 @@
                   "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n `German` and `Austrian` license plates where the car number \n must contain **one dash** `-` sign. \n\n [More about car plate templates](/docs/routes/patterns)",
                   "example": "AA4544AA"
                 },
+                "vin_code": {
+                  "type": "string",
+                  "description": "Vehicle vin-code. Required for Romanian 30, 90, 365 days vignettes",
+                  "examples": "VWT045FD9812VB341"
+                },
                 "country": {
                   "type": "string",
-                  "description": "Car registration country code. Use **two lowercase**(!) letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes. IMPORTANT to read](/docs/routes/countries)",
+                  "description": "Vehicle registration country code. Use **two lowercase**(!) letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes. IMPORTANT to read](/docs/routes/countries)",
                   "example": "ua"
                 }
               }
@@ -524,7 +529,7 @@
           },
           "cars": {
             "type": "array",
-            "description": "Array of cars with car plate and registration country.",
+            "description": "Array of Vehicles with Vehicle plate and registration country.",
             "items": {
               "type": "object",
               "required": [
@@ -534,12 +539,17 @@
               "properties": {
                 "plate": {
                   "type": "string",
-                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n `German` and `Austrian` license plates where the car number \n must contain **one dash** `-` sign. \n\n [More about car plate templates](/docs/routes/patterns)",
+                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n `German` and `Austrian` license plates where the Vehicle number \n must contain **one dash** `-` sign. \n\n [More about Vehicle plate templates](/docs/routes/patterns)",
                   "example": "AA4544AA"
+                },
+                "vin_code": {
+                  "type": "string",
+                  "description": "Vehicle vin-code. Required for Romanian 30, 90, 365 days vignettes",
+                  "examples": "VWT045FD9812VB341"
                 },
                 "country": {
                   "type": "string",
-                  "description": "Car registration country code. Use **two lowercase**(!) letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes. IMPORTANT to read](/docs/routes/countries)",
+                  "description": "Vehicle registration country code. Use **two lowercase**(!) letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes. IMPORTANT to read](/docs/routes/countries)",
                   "example": "ua"
                 }
               }
@@ -620,6 +630,7 @@
             "cars": [
               {
                 "plate": "AA4544AA",
+                "vin_code": "VWT045FD9812VB341",
                 "country": "ua"
               }
             ],
@@ -670,7 +681,7 @@
                     },
                     "provider_id": {
                       "type": "string",
-                      "description": "Car registration country code. Use two letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes](/docs/routes/countries)",
+                      "description": "Vehicle registration country code. Use two letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes](/docs/routes/countries)",
                       "example": "J7MH26M"
                     },
                     "pdf": {
@@ -1448,7 +1459,7 @@
       },
       "post": {
         "summary": "Validate vehicles",
-        "description": "Possibility to check the car number according to the selected country. \n\n [A list of acceptable car registration countries codes](/docs/routes/countries) in two letter format like `at`, `cz`, `pl`, `ua`... ",
+        "description": "Possibility to check the vehicle number according to the selected country. \n\n [A list of acceptable vehicle registration countries codes](/docs/routes/countries) in two letter format like `at`, `cz`, `pl`, `ua`... ",
         "x-zuplo-route": {
           "corsPolicy": "none",
           "handler": {
@@ -1476,7 +1487,7 @@
           }
         ],
         "requestBody": {
-          "description": "Payload required to validate a car plate.",
+          "description": "Payload required to validate a vehicle plate.",
           "required": true,
           "content": {
             "application/json": {

@@ -46,6 +46,12 @@
             "title": "The plate Schema",
             "examples": ["LJ000ID"]
           },
+          "vin_code": {
+            "type": "string",
+            "default": "",
+            "title": "The vin code Schema",
+            "examples": ["VWT045FD9812VB341"]
+          },
           "country": {
             "type": "string",
             "default": "",

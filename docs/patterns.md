@@ -1,9 +1,9 @@
-# Car plate patterns
+# Vehicle plate patterns
 
 **Important things!**
 
-- **All Austrian and German car plates must have a dash (-) symbol instead of a coat of arms ∇**
-- **Only capital letters A-Z and numbers 0-9 are used in the car plate**
+- **All Austrian and German Vehicle plates must have a dash (-) symbol instead of a coat of arms ∇**
+- **Only capital letters A-Z and numbers 0-9 are used in the Vehicle plate**
 - **Additional letters of the Latin alphabet like `Č`, `Ć`, `Đ`, `Ž`, `Š`, `Ä`, `Ö`, `Ü`, may be used depending on the country**
 - **Some letters and numbers may not be used in some countries**
 
