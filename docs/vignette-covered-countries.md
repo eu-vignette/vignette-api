@@ -8,6 +8,11 @@
 Austria has 4 available periods
 
 1 day
+- starting from purchased time until 23:59 same day or for future vignette from 00:00 until 23:59
+
+💻 Example:
+
+If customer buy 1 day vignette at 21:30 vignette be valid until 23:59 (2 hours 30 minutes)
 
 10 days
 
