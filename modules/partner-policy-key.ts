@@ -16,7 +16,7 @@ export default async function (
   } else {
     // Return the bad request response immediately if the condition is not met
     return HttpProblems.badRequest(request, context, {
-      detail: "The consumer status is not active.",
+      detail: "Your API KEY is NOT ACTIVE. For detailed information please write to pavlo.voronyuk@gmail.com",
     });
   }
   
