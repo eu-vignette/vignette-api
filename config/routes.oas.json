@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Vignette ID Partner API",
-    "description": "Documentation describes the possibilities of connecting to the platform **Vignette ID** for the possibility of paying for the motorway in 8 European countries.",
+    "description": "Documentation describes the possibilities of connecting to the platform **Vignette ID** for the possibility of paying for the motorway in 8 European countries. \n\n [More about supported countries](/docs/routes/vignette-covered-countries)",
     "contact": {
       "name": "API Support",
       "email": "work+api+support@vignette.id"
@@ -97,6 +97,27 @@
           "type": "number"
         }
       },
+      "country": {
+        "name": "country",
+        "in": "query",
+        "description": "Returns filtered products by `country`. \n Supported countries `at`, `ch`, `si`, `hu`, `sk` , `cz`, `ro`, `bg` ",
+        "required": false,
+        "schema": {
+          "example": "at",
+          "default": "",
+          "type": "string"
+        }
+      },
+      "type": {
+        "name": "type",
+        "in": "query",
+        "description": "Returns filtered products by `type`. \n Supported types `vignette`, `tunnel`",
+        "required": false,
+        "schema": {
+          "example": "at",
+          "type": "string"
+        }
+      },
       "currency": {
         "name": "currency",
         "in": "query",
@@ -105,6 +126,16 @@
         "schema": {
           "example": "UAH",
           "default": "EUR",
+          "type": "string"
+        }
+      },
+      "status": {
+        "name": "status",
+        "in": "query",
+        "description": "Returns filtered orders by `status`. \n\n **• Statuses** \n\n Each vignette can have one of the statuses: \n `PENDING`, `WILL BE ACTIVE`, `ACTIVE`, `EXPIRED`, `REFUNDED`, `DELETED`",
+        "required": false,
+        "schema": {
+          "example": "pending",
           "type": "string"
         }
       },
@@ -960,6 +991,12 @@
         ],
         "parameters": [
           {
+            "$ref": "#/components/parameters/country"
+          },
+          {
+            "$ref": "#/components/parameters/type"
+          },
+          {
             "$ref": "#/components/parameters/currency"
           }
         ],
@@ -1040,7 +1077,7 @@
       },
       "get": {
         "summary": "User Orders",
-        "description": "An array of all vignettes for a specific user. \n\n **• Statuses** \n\n Each vignette can have one of the statuses: \n `ACTIVE`, `EXPIRED`, `PENDING`, `REFUNDED`, `DELETED` \n\n `ACTIVE` - This status indicates that the vignette is currently in use. It's active and functioning as expected. \n\n `EXPIRED` - This status signifies that the vignette is no longer active or valid. This could be due to a time limit that has been exceeded or a condition that is no longer met. \n\n `PENDING` - This status means that the vignette is awaiting further action or approval. It's **not yet active**, but it's in a queue or waiting list for processing.\n\n `REFUNDED` - This status indicates that payment for the vignette is due. The vignette might not be active or accessible until the payment is made.\n\n `DELETED` - This status indicates that...  \n\n **• Unique vignette id** \n\n `provider_id` is a string represented unique vignette id in national providers system in diferent formats",
+        "description": "An array of all vignettes for a specific user. \n\n **• Statuses** \n\n Each vignette can have one of the statuses: \n `PENDING`, `WILL BE ACTIVE`, `ACTIVE`, `EXPIRED`, `REFUNDED`, `DELETED` \n\n `ACTIVE` - This status indicates that the vignette is currently in use. It's active and functioning as expected. \n\n `EXPIRED` - This status signifies that the vignette is no longer active or valid. This could be due to a time limit that has been exceeded or a condition that is no longer met. \n\n `PENDING` - This status means that the vignette is awaiting further action or approval. It's **not yet active**, but it's in a queue or waiting list for processing.\n\n `REFUNDED` - This status indicates that payment for the vignette is due. The vignette might not be active or accessible until the payment is made.\n\n `DELETED` - This status indicates that...  \n\n **• Unique vignette id** \n\n `provider_id` is a string represented unique vignette id in national providers system in diferent formats",
         "x-zuplo-route": {
           "corsPolicy": "none",
           "handler": {
@@ -1140,11 +1177,6 @@
         "operationId": "a5e610d2-d515-4f71-b8f3-e2a539405bd9",
         "tags": [
           "Orders List Endpoints"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/BugReport"
-          }
         ],
         "requestBody": {
           "description": "Payload required to create a new order.",
@@ -1257,6 +1289,15 @@
         "tags": [
           "Orders List Endpoints"
         ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/status"
+          },
+          {
+            "$ref": "#/components/parameters/BugReport"
+          }
+        ],
+        
         "responses": {
           "200": {
             "description": "Successful operation",
