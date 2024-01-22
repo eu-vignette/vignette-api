@@ -59,7 +59,7 @@ Examples:
 ## 🇭🇷 Croatia
 
 - **The letters `Q`, `W`, `X` and `Y` may not be used**
-- **Car plate can contain letters like `Č`, `Ž`, `Š`**
+- **Vehicle plate can contain letters like `Č`, `Ž`, `Š`**
 
 [Read more on wikipedia](https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Croatia)
 
