@@ -12,12 +12,17 @@
     {
       "type": "doc",
       "id": "patterns",
-      "label": "Car plate patterns"
+      "label": "Vehicle plate patterns"
     },
     {
       "type": "doc",
       "id": "countries",
       "label": "Country codes"
+    },
+    {
+      "type": "doc",
+      "id": "statuses",
+      "label": "Statuses list"
     },
     {
       "type": "doc",

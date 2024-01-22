@@ -25,6 +25,8 @@
 |                 |   vignette-ch-2b  |      van      |
 |                 |   vignette-ch-1m  |      moto     |
 |                 |                   |               |
+|                 |   tunnel-ch-muntlaschera    |      all      |
+|                 |                   |               |
 |     Slovakia    |   vignette-sk-2a  |      car      |
 |                 |   vignette-sk-2b  |      van      |
 |                 |                   |               |
