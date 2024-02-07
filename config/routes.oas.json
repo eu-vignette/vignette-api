@@ -379,7 +379,7 @@
                   }
                 ],
                 "purchase_date": 1692691932,
-                "start_date": 1692655200, 
+                "start_date": 1692655200,
                 "end_date": 1693519199,
                 "period": "10",
                 "type": "vignette",
@@ -616,7 +616,10 @@
                   "example": 1690711200
                 },
                 "period": {
-                  "type": ["integer", "string"],
+                  "type": [
+                    "integer",
+                    "string"
+                  ],
                   "description": "Period of vignette. Available periods depend on the country. \n Possible options `7`, `10`, `30`, `60`, `90`, `180`, `365` days. \n\n For tunnels you can use `1j`, `2j` and `365`, where `j` mean **journey** \n\n To check options - use endpoint [/public/products -> price](/docs/routes#products-list-endpoints) \n\n [More about country periods](/docs/routes/vignette-covered-countries)",
                   "example": 30
                 }
@@ -730,7 +733,10 @@
                 "type": "integer"
               },
               "period": {
-                "type": ["integer", "string"]
+                "type": [
+                  "integer",
+                  "string"
+                ]
               },
               "type": {
                 "type": "string"
@@ -1367,7 +1373,6 @@
             "$ref": "#/components/parameters/BugReport"
           }
         ],
-        
         "responses": {
           "200": {
             "description": "Successful operation",
