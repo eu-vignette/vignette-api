@@ -1,9 +1,33 @@
 # Vignette ID API updates
 
-## March 2024
-- preparation for adding a `Czech` `1` day vignette.
-- from March 1st the cost of all Czech vignettes will be changed
+## NEXT updates
 
+- From 1st April we   change processing for Austrian vignettes and data what we return (Please check emails to read description)
+
+## April 2024
+- Update Terms and policy
+- added a `Hungarian` `1` day vignette for all Vehicle types.
+
+## March 2024
+- added a `Czech` `1` day vignette.
+- from March 1st the cost of all Czech vignettes will be changed
+- added a `Romanian` `1` day vignette.
+
+
+## Februar 2024
+- Added automation for checking partner payments. 
+
+  How it works: 
+    The system keeps records of the partner’s debt. If a partner's debt reaches 2,000 euros, the partner automatically receives a reminder that payment needs to be made and the amount due. 
+    From this moment on, the partner has 72 hours to make the payment.
+
+    When the amount specified in the email is credited to the bank account, the partner receives another notification of a successful transaction.
+
+    If no payment has been made within 72 hours, access to the API is automatically disabled.
+
+    From the moment the API is disabled, the fine begins to accrue. The calculation is based on the agreement that was signed at the beginning of cooperation.
+
+    When the debt is paid, the partner receives an email with the amount of the fine due and an invoice. The partner has 72 hours to pay the fine to avoid being disconnected from the API again.
 
 ## Januar 2024
 - added a new product in Switzerland - tunnel Munt La Schera  / `tunnel-ch-muntlaschera`
