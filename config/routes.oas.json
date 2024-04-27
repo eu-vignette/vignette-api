@@ -113,7 +113,7 @@
         "description": "Returns filtered products by `type`. \n Supported types `vignette`, `tunnel`",
         "required": false,
         "schema": {
-          "example": "at",
+          "example": "vignette",
           "type": "string"
         }
       },
@@ -206,7 +206,7 @@
             "error": null,
             "result": [
               {
-                "name": "ro-vignette-2a",
+                "name": "vignette-ro-2a",
                 "title": "Vignette 2A",
                 "icon": "https://vignette.id/img/cars/car.svg",
                 "color": "blue",
@@ -226,7 +226,7 @@
                 }
               },
               {
-                "name": "cz-vignette",
+                "name": "vignette-cz-2a",
                 "title": "Vignette 2A",
                 "icon": "https://vignette.id/img/cars/car.svg",
                 "color": "blue",
@@ -448,54 +448,6 @@
             ]
           }
         }
-      },
-      "ValidatePlateObject": {
-        "type": "object",
-        "title": "Validate vehicle plate Schema",
-        "required": [
-          "cars"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "cars": {
-            "type": "array",
-            "description": "Array of vehicles with vehicle plate and registration country.",
-            "items": {
-              "type": "object",
-              "required": [
-                "plate",
-                "country"
-              ],
-              "properties": {
-                "plate": {
-                  "type": "string",
-                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n `German` and `Austrian` license plates where the car number \n must contain **one dash** `-` sign. \n\n [More about car plate templates](/docs/routes/patterns)",
-                  "example": "AA4544AA"
-                },
-                "vin_code": {
-                  "type": "string",
-                  "description": "Not required. \n\n **Exception** \n `Romanian` `30`,`90` and `365` days vignettes **required** this data .",
-                  "examples": "VWT045FD9812VB341"
-                },
-                "country": {
-                  "type": "string",
-                  "description": "Vehicle registration country code. Use **two lowercase**(!) letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes. IMPORTANT to read](/docs/routes/countries)",
-                  "example": "ua"
-                }
-              }
-            }
-          }
-        },
-        "examples": [
-          {
-            "cars": [
-              {
-                "plate": "AA4544AA",
-                "country": "ua"
-              }
-            ]
-          }
-        ]
       },
       "ResponseValidatePlateObject": {
         "type": "object",
@@ -1112,6 +1064,65 @@
         }
       }
     },
+    "/public/products/status": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Products / Status",
+        "description": "Returns the status of national providers, as well as all products.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "partner-api-key",
+              "partner-policy-key"
+            ]
+          }
+        },
+        "operationId": "5a0e0453-7e3e-403c-bc42-f3d84d2852bc",
+        "tags": [
+          "Products List Endpoints"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/country"
+          },
+          {
+            "$ref": "#/components/parameters/type"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produscts description test",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllProductsObject"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SchemaValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/public/users": {
       "x-zuplo-path": {
         "pathMode": "open-api"
@@ -1254,7 +1265,7 @@
           },
           "policies": {
             "inbound": [
-              "insert-order-policy",
+              "request-validation-order",
               "partner-api-key",
               "partner-policy-key"
             ]
@@ -1265,12 +1276,12 @@
           "Orders List Endpoints"
         ],
         "requestBody": {
-          "description": "Payload required to create a new order.",
+          "description": "Payload required to validate a vehicle plate.",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/InsertOrderObject"
+                "$ref": "../schemas/insert-order.json"
               }
             }
           }
@@ -1574,7 +1585,7 @@
           },
           "policies": {
             "inbound": [
-              "validate-json-schema-inbound",
+              "request-validation-inbound",
               "partner-api-key",
               "partner-policy-key"
             ]
@@ -1595,7 +1606,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ValidatePlateObject"
+                "$ref": "../schemas/validate-vehicle-plate.json"
               }
             }
           }
