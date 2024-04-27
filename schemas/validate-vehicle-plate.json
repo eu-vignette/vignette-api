@@ -1,34 +1,36 @@
 {
   "type": "object",
-  "default": {},
-  "title": "Root Schema",
-  "additionalProperties": false,
+  "title": "Validate vehicle plate Schema",
   "required": [
     "cars"
   ],
+  "additionalProperties": false,
   "properties": {
     "cars": {
       "type": "array",
+      "description": "Array of vehicles with vehicle plate and registration country.",
       "items": {
         "type": "object",
+        "title": "Car data",
+        "required": [
+          "country",
+          "plate"
+        ],
         "properties": {
+          "country": {
+            "type": "string",
+            "description": "Vehicle registration country code. Use **two lowercase**(!) letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes. IMPORTANT to read](/docs/routes/countries)",
+            "example": ["si"]
+          },
           "plate": {
             "type": "string",
-            "default": "",
-            "title": "The plate Schema",
-            "examples": ["LJ000ID"]
+            "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n `German` and `Austrian` license plates where the car number \n must contain **one dash** `-` sign. \n\n [More about car plate templates](/docs/routes/patterns)",
+            "example": ["LJ000ID"]
           },
           "vin_code": {
             "type": "string",
-            "default": "",
-            "title": "The vin code Schema",
-            "examples": ["VWT045FD9812VB341"]
-          },
-          "country": {
-            "type": "string",
-            "default": "",
-            "title": "The country Schema",
-            "examples": ["si"]
+            "description": "Not required. \n\n **Exception** \n `Romanian` `10`, `30`,`90` and `365` days vignettes **required** this data .",
+            "example": ["VWT045FD9812VB341"]
           }
         }
       }
@@ -38,8 +40,9 @@
     {
       "cars": [
         {
+          "country": "ua",
           "plate": "AA4544AA",
-          "country": "ua"
+          "vin_code": "VWT045FD9812VB341"
         }
       ]
     }

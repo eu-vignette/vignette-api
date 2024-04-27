@@ -2,11 +2,12 @@
 
 ## NEXT updates
 
-- From 1st April we   change processing for Austrian vignettes and data what we return (Please check emails to read description)
+- From 6th May we change processing for Austrian vignettes and data what we return (Please check emails to read description)
 
 ## April 2024
-- Update Terms and policy
 - added a `Hungarian` `1` day vignette for all Vehicle types.
+- Now you can check National provider system status.
+  You can use `/public/products/status` route
 
 ## March 2024
 - added a `Czech` `1` day vignette.

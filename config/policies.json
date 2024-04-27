@@ -57,6 +57,36 @@
       },
       "name": "rate-limit-inbound",
       "policyType": "rate-limit-inbound"
+    },
+    {
+      "handler": {
+        "export": "RequestValidationInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "includeRequestInLogs": true,
+          "logLevel": "info",
+          "validateBody": "reject-and-log",
+          "validatePathParameters": "log-only",
+          "validateQueryParameters": "log-only"
+        }
+      },
+      "name": "request-validation-inbound",
+      "policyType": "request-validation-inbound"
+    },
+    {
+      "handler": {
+        "export": "RequestValidationInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "includeRequestInLogs": false,
+          "logLevel": "info",
+          "validateBody": "reject-and-log",
+          "validatePathParameters": "log-only",
+          "validateQueryParameters": "log-only"
+        }
+      },
+      "name": "request-validation-order",
+      "policyType": "request-validation-inbound"
     }
   ]
 }
