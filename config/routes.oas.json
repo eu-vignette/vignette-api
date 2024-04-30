@@ -1265,7 +1265,6 @@
           },
           "policies": {
             "inbound": [
-              "request-validation-order",
               "partner-api-key",
               "partner-policy-key"
             ]

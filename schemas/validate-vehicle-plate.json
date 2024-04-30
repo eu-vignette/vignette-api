@@ -4,7 +4,7 @@
   "required": [
     "cars"
   ],
-  "additionalProperties": false,
+  "additionalProperties": true,
   "properties": {
     "cars": {
       "type": "array",
