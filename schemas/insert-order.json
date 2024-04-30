@@ -13,9 +13,6 @@
     "terms_and_privacy_accepted": {
       "type": "boolean",
       "description": "Must be `true` to indicate that terms and privacy are accepted. Partner need to store this information in the user order.",
-      "enum": [
-        "true"
-      ],
       "examples": [
         true
       ]
@@ -23,9 +20,6 @@
     "order_has_been_paid": {
       "type": "boolean",
       "description": "Must be `true` to indicate that the order has been paid. Partner received payment from user.",
-      "enum": [
-        "true"
-      ],
       "examples": [
         true
       ]
