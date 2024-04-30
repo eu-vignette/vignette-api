@@ -34,6 +34,12 @@
           }
         }
       }
+    },
+    "emails": {
+      "type": "array",
+      "description": "Option to check user email",
+      "example": ["useremail@example.com"]
+      
     }
   },
   "examples": [
@@ -44,7 +50,8 @@
           "plate": "AA4544AA",
           "vin_code": "VWT045FD9812VB341"
         }
-      ]
+      ],
+      "email": "useremail@example.com"
     }
   ]
 }
