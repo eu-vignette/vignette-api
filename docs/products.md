@@ -14,7 +14,6 @@
 |                 |                   |               |
 |     Hungary     |   vignette-hu-2a  |      car      |
 |                 |   vignette-hu-2b  |      van      |
-|                 |   vignette-hu-2c  |      bus      |
 |                 |   vignette-hu-1m  |      moto     |
 |                 |                   |               |
 |     Slovenia    |   vignette-si-2a  |      car      |
@@ -35,6 +34,9 @@
 |                 |                   |               |
 |     Romania     |   vignette-ro-2a  |      car      |
 |                 |   vignette-ro-2b  |      van      |
+|                 |                   |               |
+|     Moldova     |   vignette-md-2a  |      car      |
+|                 |   vignette-md-2b  |      van      |
 |                 |                   |               |
 |     Bulgaria    |   vignette-bg-2a  |      car      |
 |                 |   vignette-bg-2b  |      van      |

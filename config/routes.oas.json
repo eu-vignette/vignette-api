@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Vignette ID Partner API",
-    "description": "Documentation describes the possibilities of connecting to the platform **Vignette ID** for the possibility of paying for the motorway in 8 European countries. \n\n [More about supported countries](/docs/routes/vignette-covered-countries)",
+    "description": "Documentation describes the possibilities of connecting to the platform **Vignette ID** for the possibility of paying for the motorway in 8 European countries. \n\n [More about supported countries](/docs/routes/vignette-covered-countries) \n\n [Get access to sandbox](https://e-vignettes.eu/en/partner)",
     "contact": {
       "name": "API Support",
       "email": "work+api+support@vignette.id"

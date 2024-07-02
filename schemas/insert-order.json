@@ -4,7 +4,7 @@
   "required": [
     "terms_and_privacy_accepted",
     "order_has_been_paid",
-    "email",
+    "user",
     "cars",
     "products"
   ],
@@ -31,6 +31,34 @@
       "examples": [
         "user@gmail.com"
       ]
+    },
+    "user": {
+      "type": "array",
+      "description": "Array of User data.",
+      "items": {
+        "type": "object",
+        "title": "User data",
+        "required": [
+          "email"
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "The partner user email. Must contain the **user's real email**. By default, any emails from our side are disabled.",
+            "example": ["user@example.com"]
+          },
+          "user_name": {
+            "type": "string",
+            "description": "Not required. \n\n **Exception** \n `Moldova` all vignettes **required** this data .",
+            "example": ["John Smith"]
+          },
+          "passport_number": {
+            "type": "string",
+            "description": "Not required. \n\n **Exception** \n `Moldova` all vignettes **required** this data .",
+            "example": ["FP123456"]
+          }
+        }
+      }
     },
     "cars": {
       "type": "array",
@@ -132,6 +160,13 @@
       "terms_and_privacy_accepted": true,
       "order_has_been_paid": true,
       "email": "user@example.com",
+      "user": [
+        {
+          "email": "user@example.com",
+          "user_name": "John Smith",
+          "passport_number": "FP123456"
+        }
+      ],
       "cars": [
         {
           "country": "ua",

@@ -2,7 +2,11 @@
 
 ## NEXT updates
 
+
+## May 2024
 - From 6th May we change processing for Austrian vignettes and data what we return (Please check emails to read description)
+- We remove vignette-hu-2c (bus category) from API
+- added `7`, `15` and `30` days vignettes 2A category for `Moldova`. In May and June we test this orders and later add 2B category
 
 ## April 2024
 - added a `Hungarian` `1` day vignette for all Vehicle types.

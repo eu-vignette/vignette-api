@@ -178,3 +178,15 @@ In next periods API waiting vin-code (required) from vehicle. [About vin-code pa
 
 - 365 days
   In year period vignette available from selected **start date + 365 days**.
+
+## 🇷🇴 Moldova
+
+Currently we support 3 periods in Moldova
+
+- 7 day
+
+- 15 days
+
+- 30 days
+
+**Important!** For Moldova we additional expect First and Last name and Passport number
