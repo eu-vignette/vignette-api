@@ -88,5 +88,16 @@
       "name": "request-validation-order",
       "policyType": "request-validation-inbound"
     }
+  ],
+  "corsPolicies": [
+    {
+      "name": "custom-cors",
+      "allowedOrigins": "*",
+      "allowedHeaders": "Origin, Content-Type, Accept, Authorization",
+      "allowedMethods": ["GET", "POST"],
+      "exposeHeaders": "my-special-response-header",
+      "maxAge": 600,
+      "allowCredentials": true
+    }
   ]
 }
