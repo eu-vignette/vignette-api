@@ -1010,7 +1010,7 @@
         "summary": "Products (vignettes and tunnels)",
         "description": "All available products (vignettes, tunnels, trains, ferries) for customers in 8 European countries",
         "x-zuplo-route": {
-          "corsPolicy": "none",
+          "corsPolicy": "custom-cors",
           "handler": {
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
