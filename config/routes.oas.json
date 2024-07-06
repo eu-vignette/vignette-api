@@ -1010,7 +1010,7 @@
         "summary": "Products (vignettes and tunnels)",
         "description": "All available products (vignettes, tunnels, trains, ferries) for customers in 8 European countries",
         "x-zuplo-route": {
-          "corsPolicy": "custom-cors",
+          "corsPolicy": "main-api-cors",
           "handler": {
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
@@ -1255,7 +1255,7 @@
         "summary": "Create order",
         "description": "New **paid** order on partner side initiate request for processing in Vignette ID system.",
         "x-zuplo-route": {
-          "corsPolicy": "none",
+          "corsPolicy": "main-api-cors",
           "handler": {
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
@@ -1574,7 +1574,7 @@
         "summary": "Validate vehicles",
         "description": "Possibility to check the vehicle number according to the selected country. \n\n [A list of acceptable vehicle registration countries codes](/docs/routes/countries) in two letter format like `at`, `cz`, `pl`, `ua`... ",
         "x-zuplo-route": {
-          "corsPolicy": "none",
+          "corsPolicy": "main-api-cors",
           "handler": {
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",

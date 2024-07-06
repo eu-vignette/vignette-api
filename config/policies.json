@@ -91,7 +91,7 @@
   ],
   "corsPolicies": [
     {
-      "name": "custom-cors",
+      "name": "main-api-cors",
       "allowedOrigins": "*",
       "allowedHeaders": "Origin, Content-Type, Accept, Authorization",
       "allowedMethods": ["GET", "POST"],
