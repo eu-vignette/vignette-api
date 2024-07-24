@@ -2,11 +2,26 @@
 
 ## NEXT updates
 
+## August 2024
+- From 6th May we change processing for Austrian vignettes and data what we return (Please check emails to read description)
+- We remove vignette-hu-2c (bus category) from API
+- added `7`, `15` and `30` days vignettes 2A category for `Moldova`. In May and June we test this orders and later add 2B category
+
+
+## July 2024
+- You can use `/public/orders/:id/status` route to get status of order without another information.
+- Now you have to option to provide payment method of users:
+  - If `order_has_been_paid: true` its mean that you collect payment on your side
+  - If `order_has_been_paid: false` API return payment link in response. We process payment on our side. You can use `/public/orders/:id/status` to check status od this order.
+
+## June 2024
+- added `7`, `15` and `30` days vignettes *2B* category for `Moldova`.
+
 
 ## May 2024
 - From 6th May we change processing for Austrian vignettes and data what we return (Please check emails to read description)
 - We remove vignette-hu-2c (bus category) from API
-- added `7`, `15` and `30` days vignettes 2A category for `Moldova`. In May and June we test this orders and later add 2B category
+- added `7`, `15` and `30` days vignettes *2A* category for `Moldova`. In May and June we test this orders and later add 2B category
 
 ## April 2024
 - added a `Hungarian` `1` day vignette for all Vehicle types.

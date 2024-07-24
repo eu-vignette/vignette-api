@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Vignette ID Partner API",
-    "description": "Documentation describes the possibilities of connecting to the platform **Vignette ID** for the possibility of paying for the motorway in 8 European countries. \n\n [More about supported countries](/docs/routes/vignette-covered-countries) \n\n [Get access to sandbox](https://e-vignettes.eu/en/partner)",
+    "description": "Documentation describes the possibilities of connecting to the platform **Vignette ID** for the possibility of paying for the motorway in 9 European countries. \n\n [More about supported countries](/docs/routes/vignette-covered-countries) \n\n [Get access to sandbox](https://e-vignettes.eu/en/partner)",
     "contact": {
       "name": "API Support",
       "email": "work+api+support@vignette.id"
@@ -100,7 +100,7 @@
       "country": {
         "name": "country",
         "in": "query",
-        "description": "Returns filtered products by `country`. \n Supported countries `at`, `ch`, `si`, `hu`, `sk` , `cz`, `ro`, `bg` ",
+        "description": "Returns filtered products by `country`. \n Supported countries `at`, `ch`, `si`, `hu`, `sk` , `cz`, `ro`, `bg`, `md` ",
         "required": false,
         "schema": {
           "example": "at",
@@ -445,7 +445,8 @@
                 "currency": "EUR",
                 "profit": 2.55
               }
-            ]
+            ],
+            "payment_link": "https://vignette.id/payment/order/{custom_id}"
           }
         }
       },
@@ -496,7 +497,7 @@
           },
           "order_has_been_paid": {
             "type": "boolean",
-            "description": "Must be `true` to indicate that the order has been paid.",
+            "description": "• `true` - this means that the partner accepted and processed the payment on his side. \n\n• `false` - to pay for an order, the API generates a link and returns it to the response in `payment_link`, which the partner must display to the user.\n The payment is processed on our side.",
             "enum": [
               "true"
             ],
@@ -1459,7 +1460,64 @@
         "summary": "Get Order",
         "description": " • `id` - order id in Vignette ID system\n • `custom_id` - order id in Partner system\n • `provider_id` - unique vignette id in national (government) providers systems\n • `cars -> provider_id ` - unique vignette identificator in national provider system\n • `cars -> pdf ` - confirmation file from national provider system",
         "x-zuplo-route": {
-          "corsPolicy": "none",
+          "corsPolicy": "main-api-cors",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "partner-api-key",
+              "partner-policy-key"
+            ]
+          }
+        },
+        "operationId": "ffe09321-ef68-4f25-bf17-a8fa530a6618",
+        "tags": [
+          "Orders List Endpoints"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/OrderIdOrCustomId"
+          },
+          {
+            "$ref": "#/components/parameters/BugReport"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Specific order description test",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderObject"
+                }
+              }
+            }
+          }
+        },
+        "additionalOperationContext": {
+          "oasFilePath": "/config/routes.oas.json",
+          "method": "get",
+          "path": "/public/orders/:id",
+          "pathZuploConfig": {
+            "pathMode": "open-api"
+          }
+        }
+      }
+    },
+    "/public/orders/:id/status": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Get Order Status",
+        "description": "Returns only the order status.\n Applicable in cases where you need to check only the status without other information. ",
+        "x-zuplo-route": {
+          "corsPolicy": "main-api-cors",
           "handler": {
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",

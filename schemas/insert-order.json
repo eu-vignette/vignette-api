@@ -19,7 +19,7 @@
     },
     "order_has_been_paid": {
       "type": "boolean",
-      "description": "Must be `true` to indicate that the order has been paid. Partner received payment from user.",
+      "description": "• `true` - this means that the partner accepted and processed the payment on his side. \n\n• `false` - to pay for an order, the API generates a link and returns it to the response in `payment_link`, which the partner must display to the user.\n The payment is processed on our side.",
       "examples": [
         true
       ]
@@ -83,7 +83,7 @@
           },
           "vin_code": {
             "type": "string",
-            "description": "Not required. \n\n **Exception** \n `Romanian` `10`, `30`,`90` and `365` days vignettes **required** this data .",
+            "description": "Not required. \n\n **Exception** \n `Romanian` `10`, `30`,`90` and `365` days vignettes and all vignettes in `Moldova` **required** this data .",
             "example": ["VWT045FD9812VB341"]
           }
         }
