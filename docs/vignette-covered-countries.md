@@ -168,7 +168,7 @@ Romania has 5 available periods
 
   If customer buy 1 day vignette at 21:30 vignette be valid until 23:59 (2 hours 30 minutes)
 
-In next periods API waiting vin-code (required) from vehicle. [About vin-code patterns](/docs/routes/countries)
+In next periods API waiting vin-code (required) from vehicle. [About vin-code patterns](/docs/routes/vin-codes)
 
 - 10 days
 
@@ -182,6 +182,7 @@ In next periods API waiting vin-code (required) from vehicle. [About vin-code pa
 ## 🇷🇴 Moldova
 
 Currently we support 3 periods in Moldova
+For all periods API waiting vin-code (required) from vehicle. [About vin-code patterns](/docs/routes/vin-codes)
 
 - 7 day
 
@@ -189,4 +190,8 @@ Currently we support 3 periods in Moldova
 
 - 30 days
 
-**Important!** For Moldova we additional expect First and Last name and Passport number
+**Important!** 
+
+For Moldova we additional expect 
+- `First` and `Last` name 
+- `Passport number`

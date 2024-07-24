@@ -11,8 +11,13 @@
     },
     {
       "type": "doc",
-      "id": "patterns",
-      "label": "Vehicle plate patterns"
+      "id": "vignette-covered-countries",
+      "label": "Vignette ID covered countries"
+    },
+    {
+      "type": "doc",
+      "id": "products",
+      "label": "Vignette ID products naming"
     },
     {
       "type": "doc",
@@ -21,18 +26,18 @@
     },
     {
       "type": "doc",
+      "id": "patterns",
+      "label": "Vehicle plate patterns"
+    },
+    {
+      "type": "doc",
+      "id": "vin-codes",
+      "label": "Vehicle VIN codes patterns"
+    },
+    {
+      "type": "doc",
       "id": "statuses",
       "label": "Statuses list"
-    },
-    {
-      "type": "doc",
-      "id": "vignette-covered-countries",
-      "label": "Vignette ID covered countries"
-    },
-    {
-      "type": "doc",
-      "id": "products",
-      "label": "Vignette ID products naming"
     },
     {
       "type": "doc",
