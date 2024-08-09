@@ -4,8 +4,8 @@
 
 Vignette ID is a system that simplifies the process of paying for road use in Europe.
 
-The first system of its kind to pay for roads in eight European countries: Slovenia, Austria, Switzerland, Slovakia, 
-Czech Republic, Hungary, Bulgaria, Romania, as well as tunnels in Austria in just a few minutes.
+The first system of its kind to pay for roads in nine European countries: Slovenia, Austria, Switzerland, Slovakia, 
+Czech Republic, Hungary, Bulgaria, Romania, Moldova as well as tunnels in Austria in just a few minutes.
 
 ![Vignette ID covered countries](https://vignette.id/img/mapx4.png "Vignette ID covered countries")
 

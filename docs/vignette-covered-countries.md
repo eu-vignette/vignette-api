@@ -7,24 +7,24 @@
 
 Austria has 4 available periods
 
-1 day
-- starting from purchased time until 23:59 same day or for future vignette from 00:00 until 23:59
+- 1 day
+  Starting from purchased time until 23:59 same day or for future vignette from 00:00 until 23:59
 
-💻 Example:
+  💻 Example:
 
-If customer buy 1 day vignette at 21:30 vignette be valid until 23:59 (2 hours 30 minutes)
+  If customer buy 1 day vignette at 21:30 vignette be valid until 23:59 (2 hours 30 minutes)
 
-10 days
+- 10 days
 
-60 days
+- 60 days
 
-365 days
-In year period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
+- 365 days
+    In year period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
 
-💻 Example:
+    💻 Example:
 
-If customer buy annual vignette **02.04.2023** OR **30.11.2023** this vignette valid until **31.01.2024**.
-But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette valid until **31.01.2025**
+    If customer buy annual vignette **02.04.2023** OR **30.11.2023** this vignette valid until **31.01.2024**.
+    But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette valid until **31.01.2025**
 
 In Austria we also support the possibility of paying for tunnels:
 
@@ -41,114 +41,157 @@ In Austria we also support the possibility of paying for tunnels:
 
 ## 🇨🇭 Switzerland
 
-365 days
-In year period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
+- 365 days
+  In year period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
 
-💻 Example:
+  💻 Example:
 
-If customer buy annual vignette **02.04.2023** OR **30.11.2023** this vignette valid until **31.01.2024**.
-But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette valid until **31.01.2025**
+  If customer buy annual vignette **02.04.2023** OR **30.11.2023** this vignette valid until **31.01.2024**.
+  But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette valid until **31.01.2025**
 
+In Switzerland we also support the possibility of paying for tunnel:
+
+| Tunnel            | Description    | 1 trip  | 2 trips  | 1 Year  |  Status  |
+| ----------------- | -------------- | ------- | -------- | ------- | -------- |
+| La Drossa/Ligigno | Munt La Schera |   yes   |    yes   |    no   |   Open   |
 
 ## 🇭🇺 Hungary
 
-Hungary has 3 available periods
+Hungary has 4 available periods
 
-10 days
+- 1 day
+  Starting from purchased time until 23:59 same day or for future vignette from 00:00 until 23:59
+
+  💻 Example:
+
+  If customer buy 1 day vignette at 21:30 vignette be valid until 23:59 (2 hours 30 minutes)
+
+- 10 days
 
 30 days
 
-365 days
-In year period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
+- 365 days
+  In year period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
 
-💻 Example:
+  💻 Example:
 
-If customer buy annual vignette **02.04.2023** OR **30.11.2023** this vignette valid until **31.01.2024**. 
-But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette valid until **31.01.2025**
+  If customer buy annual vignette **02.04.2023** OR **30.11.2023** this vignette valid until **31.01.2024**. 
+  But if customer buy vignette **between 01.12.2023 - 31.01.2024** this vignette valid until **31.01.2025**
 
 
 ## 🇸🇰 Slovakia
 
 Slovakia has 3 available periods
 
-10 days
+- 10 days
 
-30 days
+- 30 days
 
-365 days
-In year period vignette available from selected **start date + 365 days**.
+- 365 days
+  In year period vignette available from selected **start date + 365 days**.
 
-💻 Example:
+  💻 Example:
 
-If customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
+  If customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
 
 
 ## 🇨🇿 Czech Republic
 
-Czech Republic has 3 available periods
+Czech Republic has 4 available periods
 
-10 days
+- 1 day
+  Starting from purchased time until 23:59 same day or for future vignette from 00:00 until 23:59
 
-30 days
+  💻 Example:
 
-365 days
-In year period vignette available from selected **start date + 365 days**.
+  If customer buy 1 day vignette at 21:30 vignette be valid until 23:59 (2 hours 30 minutes)
 
-💻 Example:
+- 10 days
 
-If customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
+- 30 days
+
+- 365 days
+  In year period vignette available from selected **start date + 365 days**.
+
+  💻 Example:
+
+  If customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
 
 
 ## 🇸🇮 Slovenia
 
 Slovenia has 3 available periods
 
-7 days
+- 7 days
 
-30 days
+- 30 days
 
-365 days
-In year period vignette available from selected **start date + 365 days**.
+- 365 days
+  In year period vignette available from selected **start date + 365 days**.
 
-💻 Example:
+  💻 Example:
 
-If customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
+  If customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
 
-180 days available only for Motorcicle
+- 180 days available only for Motorcicle
 
 
 ## 🇧🇬 Bulgaria
 
 Bulgaria has 4 available periods
 
-3 days (soon) - from 12:00 Friday until 23:59 Sunday
+- 3 days
+  From 12:00 Friday until 23:59 Sunday
 
-7 days
+- 7 days
 
-30 days
+- 30 days
 
-90 days
+- 90 days
 
-365 days
-In year period vignette available from selected **start date + 365 days**.
+- 365 days
+  In year period vignette available from selected **start date + 365 days**.
 
-💻 Example:
+  💻 Example:
 
-If customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
+  If customer buy annual vignette **02.04.2023** this vignette valid until **01.04.2024** 
 
 
 ## 🇷🇴 Romania
 
-Romania has 4 available periods
+Romania has 5 available periods
 
-7 days
+- 1 day
+  Starting from purchased time until 23:59 same day or for future vignette from 00:00 until 23:59
 
-In next periods API waiting vin-code (required) from vehicle. [About vin-code patterns](/docs/routes/countries)
+  💻 Example:
 
-30 days
+  If customer buy 1 day vignette at 21:30 vignette be valid until 23:59 (2 hours 30 minutes)
 
-90 days
+In next periods API waiting vin-code (required) from vehicle. [About vin-code patterns](/docs/routes/vin-codes)
 
-365 days
-In year period vignette available from selected **start date + 365 days**.
+- 10 days
 
+- 30 days
+
+- 60 days
+
+- 365 days
+  In year period vignette available from selected **start date + 365 days**.
+
+## 🇷🇴 Moldova
+
+Currently we support 3 periods in Moldova
+For all periods API waiting vin-code (required) from vehicle. [About vin-code patterns](/docs/routes/vin-codes)
+
+- 7 day
+
+- 15 days
+
+- 30 days
+
+**Important!** 
+
+For Moldova we additional expect 
+- `First` and `Last` name 
+- `Passport number`

@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Vignette ID Partner API",
-    "description": "Documentation describes the possibilities of connecting to the platform **Vignette ID** for the possibility of paying for the motorway in 8 European countries. \n\n [More about supported countries](/docs/routes/vignette-covered-countries)",
+    "description": "Documentation describes the possibilities of connecting to the platform **Vignette ID** for the possibility of paying for the motorway in 9 European countries. \n\n [More about supported countries](/docs/routes/vignette-covered-countries) \n\n [Get access to sandbox](https://e-vignettes.eu/en/partner)",
     "contact": {
       "name": "API Support",
       "email": "work+api+support@vignette.id"
@@ -100,7 +100,7 @@
       "country": {
         "name": "country",
         "in": "query",
-        "description": "Returns filtered products by `country`. \n Supported countries `at`, `ch`, `si`, `hu`, `sk` , `cz`, `ro`, `bg` ",
+        "description": "Returns filtered products by `country`. \n Supported countries `at`, `ch`, `si`, `hu`, `sk` , `cz`, `ro`, `bg`, `md` ",
         "required": false,
         "schema": {
           "example": "at",
@@ -113,7 +113,7 @@
         "description": "Returns filtered products by `type`. \n Supported types `vignette`, `tunnel`",
         "required": false,
         "schema": {
-          "example": "at",
+          "example": "vignette",
           "type": "string"
         }
       },
@@ -206,7 +206,7 @@
             "error": null,
             "result": [
               {
-                "name": "ro-vignette-2a",
+                "name": "vignette-ro-2a",
                 "title": "Vignette 2A",
                 "icon": "https://vignette.id/img/cars/car.svg",
                 "color": "blue",
@@ -226,7 +226,7 @@
                 }
               },
               {
-                "name": "cz-vignette",
+                "name": "vignette-cz-2a",
                 "title": "Vignette 2A",
                 "icon": "https://vignette.id/img/cars/car.svg",
                 "color": "blue",
@@ -445,57 +445,10 @@
                 "currency": "EUR",
                 "profit": 2.55
               }
-            ]
+            ],
+            "payment_link": "https://vignette.id/payment/order/{custom_id}"
           }
         }
-      },
-      "ValidatePlateObject": {
-        "type": "object",
-        "title": "Validate vehicle plate Schema",
-        "required": [
-          "cars"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "cars": {
-            "type": "array",
-            "description": "Array of vehicles with vehicle plate and registration country.",
-            "items": {
-              "type": "object",
-              "required": [
-                "plate",
-                "country"
-              ],
-              "properties": {
-                "plate": {
-                  "type": "string",
-                  "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n `German` and `Austrian` license plates where the car number \n must contain **one dash** `-` sign. \n\n [More about car plate templates](/docs/routes/patterns)",
-                  "example": "AA4544AA"
-                },
-                "vin_code": {
-                  "type": "string",
-                  "description": "Not required. \n\n **Exception** \n `Romanian` `30`,`90` and `365` days vignettes **required** this data .",
-                  "examples": "VWT045FD9812VB341"
-                },
-                "country": {
-                  "type": "string",
-                  "description": "Vehicle registration country code. Use **two lowercase**(!) letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes. IMPORTANT to read](/docs/routes/countries)",
-                  "example": "ua"
-                }
-              }
-            }
-          }
-        },
-        "examples": [
-          {
-            "cars": [
-              {
-                "plate": "AA4544AA",
-                "country": "ua"
-              }
-            ]
-          }
-        ]
       },
       "ResponseValidatePlateObject": {
         "type": "object",
@@ -544,7 +497,7 @@
           },
           "order_has_been_paid": {
             "type": "boolean",
-            "description": "Must be `true` to indicate that the order has been paid.",
+            "description": "• `true` - this means that the partner accepted and processed the payment on his side. \n\n• `false` - to pay for an order, the API generates a link and returns it to the response in `payment_link`, which the partner must display to the user.\n The payment is processed on our side.",
             "enum": [
               "true"
             ],
@@ -1058,7 +1011,7 @@
         "summary": "Products (vignettes and tunnels)",
         "description": "All available products (vignettes, tunnels, trains, ferries) for customers in 8 European countries",
         "x-zuplo-route": {
-          "corsPolicy": "none",
+          "corsPolicy": "main-api-cors",
           "handler": {
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
@@ -1086,6 +1039,65 @@
           },
           {
             "$ref": "#/components/parameters/currency"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produscts description test",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllProductsObject"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SchemaValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public/products/status": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Products / Status",
+        "description": "Returns the status of national providers, as well as all products.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "partner-api-key",
+              "partner-policy-key"
+            ]
+          }
+        },
+        "operationId": "5a0e0453-7e3e-403c-bc42-f3d84d2852bc",
+        "tags": [
+          "Products List Endpoints"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/country"
+          },
+          {
+            "$ref": "#/components/parameters/type"
           }
         ],
         "responses": {
@@ -1244,7 +1256,7 @@
         "summary": "Create order",
         "description": "New **paid** order on partner side initiate request for processing in Vignette ID system.",
         "x-zuplo-route": {
-          "corsPolicy": "none",
+          "corsPolicy": "main-api-cors",
           "handler": {
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
@@ -1254,7 +1266,6 @@
           },
           "policies": {
             "inbound": [
-              "insert-order-policy",
               "partner-api-key",
               "partner-policy-key"
             ]
@@ -1265,12 +1276,12 @@
           "Orders List Endpoints"
         ],
         "requestBody": {
-          "description": "Payload required to create a new order.",
+          "description": "Payload required to validate a vehicle plate.",
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/InsertOrderObject"
+                "$ref": "../schemas/insert-order.json"
               }
             }
           }
@@ -1449,7 +1460,64 @@
         "summary": "Get Order",
         "description": " • `id` - order id in Vignette ID system\n • `custom_id` - order id in Partner system\n • `provider_id` - unique vignette id in national (government) providers systems\n • `cars -> provider_id ` - unique vignette identificator in national provider system\n • `cars -> pdf ` - confirmation file from national provider system",
         "x-zuplo-route": {
-          "corsPolicy": "none",
+          "corsPolicy": "main-api-cors",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "partner-api-key",
+              "partner-policy-key"
+            ]
+          }
+        },
+        "operationId": "ffe09321-ef68-4f25-bf17-a8fa530a6618",
+        "tags": [
+          "Orders List Endpoints"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/OrderIdOrCustomId"
+          },
+          {
+            "$ref": "#/components/parameters/BugReport"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Specific order description test",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrderObject"
+                }
+              }
+            }
+          }
+        },
+        "additionalOperationContext": {
+          "oasFilePath": "/config/routes.oas.json",
+          "method": "get",
+          "path": "/public/orders/:id",
+          "pathZuploConfig": {
+            "pathMode": "open-api"
+          }
+        }
+      }
+    },
+    "/public/orders/:id/status": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Get Order Status",
+        "description": "Returns only the order status.\n Applicable in cases where you need to check only the status without other information. ",
+        "x-zuplo-route": {
+          "corsPolicy": "main-api-cors",
           "handler": {
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
@@ -1564,7 +1632,7 @@
         "summary": "Validate vehicles",
         "description": "Possibility to check the vehicle number according to the selected country. \n\n [A list of acceptable vehicle registration countries codes](/docs/routes/countries) in two letter format like `at`, `cz`, `pl`, `ua`... ",
         "x-zuplo-route": {
-          "corsPolicy": "none",
+          "corsPolicy": "main-api-cors",
           "handler": {
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
@@ -1574,7 +1642,7 @@
           },
           "policies": {
             "inbound": [
-              "validate-json-schema-inbound",
+              "request-validation-inbound",
               "partner-api-key",
               "partner-policy-key"
             ]
@@ -1595,7 +1663,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ValidatePlateObject"
+                "$ref": "../schemas/validate-vehicle-plate.json"
               }
             }
           }

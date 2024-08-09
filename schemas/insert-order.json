@@ -1,135 +1,155 @@
 {
   "type": "object",
-  "default": {},
-  "title": "Root Schema",
-  "additionalProperties": false,
+  "title": "Order Insert Schema",
   "required": [
     "terms_and_privacy_accepted",
     "order_has_been_paid",
-    "email",
     "cars",
     "products"
   ],
+  "additionalProperties": false,
   "properties": {
     "terms_and_privacy_accepted": {
       "type": "boolean",
-      "default": false,
-      "title": "The terms_and_privacy_accepted Schema",
-      "examples": [true]
+      "description": "Must be `true` to indicate that terms and privacy are accepted. Partner need to store this information in the user order.",
+      "examples": [
+        true
+      ]
     },
     "order_has_been_paid": {
       "type": "boolean",
-      "default": false,
-      "title": "The order_has_been_paid Schema",
-      "examples": [true]
+      "description": "• `true` - this means that the partner accepted and processed the payment on his side. \n\n• `false` - to pay for an order, the API generates a link and returns it to the response in `payment_link`, which the partner must display to the user.\n The payment is processed on our side.",
+      "examples": [
+        true
+      ]
     },
     "email": {
       "type": "string",
-      "default": "",
-      "title": "The partner user email. Must contain the user's real email",
-      "examples": ["test@example.com"]
+      "format": "email",
+      "description": "The partner user email. Must contain the **user's real email**. By default, any emails from our side are disabled.",
+      "examples": [
+        "user@gmail.com"
+      ]
     },
-    "custom_id": {
-      "type": "string",
-      "default": "",
-      "title": "Partner id",
-      "examples": ["00asd4123"]
+    "user": {
+      "type": "array",
+      "description": "Array of User data.",
+      "items": {
+        "type": "object",
+        "title": "User data",
+        "required": [
+          "email"
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "The partner user email. Must contain the **user's real email**. By default, any emails from our side are disabled.",
+            "example": ["user@example.com"]
+          },
+          "user_name": {
+            "type": "string",
+            "description": "Not required. \n\n **Exception** \n `Moldova` all vignettes **required** this data .",
+            "example": ["John Smith"]
+          },
+          "passport_number": {
+            "type": "string",
+            "description": "Not required. \n\n **Exception** \n `Moldova` all vignettes **required** this data .",
+            "example": ["FP123456"]
+          }
+        }
+      }
     },
     "cars": {
       "type": "array",
+      "description": "Array of Vehicles with vehicle plate and registration country.",
       "items": {
         "type": "object",
+        "title": "Car data",
+        "required": [
+          "country",
+          "plate"
+        ],
         "properties": {
+          "country": {
+            "type": "string",
+            "description": "Vehicle registration country code. Use **two lowercase**(!) letter code format like `at`, `cz`, `pl`, `ua`... \n\n [More about country codes. IMPORTANT to read](/docs/routes/countries)",
+            "example": ["si"]
+          },
           "plate": {
             "type": "string",
-            "default": "",
-            "title": "The plate Schema",
-            "examples": ["LJ000ID"]
+            "description": "Carplate number (vehicle plate)\n\n **Important!** \n Only numbers and Latin characters \n\n **Exception** \n `German` and `Austrian` license plates where the car number \n must contain **one dash** `-` sign. \n\n [More about car plate templates](/docs/routes/patterns)",
+            "example": ["LJ000ID"]
           },
           "vin_code": {
             "type": "string",
-            "default": "",
-            "title": "The vin code Schema",
-            "examples": ["VWT045FD9812VB341"]
-          },
-          "country": {
-            "type": "string",
-            "default": "",
-            "title": "The country Schema",
-            "examples": ["si"]
+            "description": "Not required. \n\n **Exception** \n `Romanian` `10`, `30`,`90` and `365` days vignettes and all vignettes in `Moldova` **required** this data .",
+            "example": ["VWT045FD9812VB341"]
           }
         }
       }
     },
     "products": {
       "type": "array",
+      "description": "Array of vignettes with custom id, name, period, and start date.",
       "items": {
         "type": "object",
+        "title": "Product data",
+        "required": [
+          "name",
+          "start_date",
+          "period"
+        ],
         "properties": {
           "custom_id": {
             "type": "string",
-            "default": "",
-            "title": "Partner custom id",
-            "examples": ["partner-00001"]
+            "description": "Order id in Partner system",
+            "example": ["partnername-000001"]
           },
           "name": {
             "type": "string",
-            "default": "",
-            "title": "Name of vignette",
-            "examples": ["vignette-si-2a"]
+            "description": "Country of vignette. \n\n To check options - use endpoint [/public/products -> name](/docs/routes#products-list-endpoints)",
+            "example": ["vignette-hu-2a"]
           },
           "start_date": {
             "type": "integer",
-            "default": 0,
-            "title": "Start date of period",
-            "examples": [1690711200]
-          },
-          "start_from": {
-            "type": "integer",
-            "default": 0,
-            "title": "Start date of period",
-            "examples": [1690711200]
+            "format": "int64",
+            "description": "Start date of vignette in `UNIX` time in **Europe/Berlin Timezone**",
+            "example": 1690711200
           },
           "period": {
-            "type": ["integer", "string"],
-            "default": 0,
-            "title": "Days amount in period",
-            "examples": [30]
+            "type": [
+              "integer",
+              "string"
+            ],
+            "description": "Period of vignette. Available periods depend on the country. \n Possible options `1`, `7`, `10`, `30`, `60`, `90`, `180`, `365` days. \n\n For tunnels you can use `1j`, `2j` and `365`, where `j` mean **journey** \n\n To check options - use endpoint [/public/products -> price](/docs/routes#products-list-endpoints) \n\n [More about country periods](/docs/routes/vignette-covered-countries)",
+            "example": 30
           }
         }
       }
     },
-    "interchange_fee":{
+    "interchange_fee": {
       "type": "object",
+      "title": "Interchange data",
+      "required": [
+        "amount",
+        "currency"
+      ],
       "properties": {
         "amount": {
           "type": "number",
-          "default": "",
-          "title": "The partner payment fee",
-          "examples": [100, 3.24]
+          "description": "Gateway fee",
+          "examples": [
+            100,
+            3.14
+          ]
         },
         "currency": {
           "type": "string",
-          "default": "UAH",
-          "title": "The fee currency",
-          "examples": ["UAH", "EUR"]
-        }
-      }
-    },
-    "vat_fee":{
-      "type": "object",
-      "properties": {
-        "amount": {
-          "type": "number",
-          "default": "",
-          "title": "The partner vat fee",
-          "examples": [100, 3.24]
-        },
-        "currency": {
-          "type": "string",
-          "default": "UAH",
-          "title": "The fee currency",
-          "examples": ["UAH", "EUR"]
+          "description": "The fee currency. Available in `EUR`, `UAH`, `PLN`.",
+          "examples": [
+            "UAH",
+            "EUR"
+          ]
         }
       }
     }
@@ -138,18 +158,25 @@
     {
       "terms_and_privacy_accepted": true,
       "order_has_been_paid": true,
-      "email": "test@example.com",
+      "email": "user@example.com",
+      "user": [
+        {
+          "email": "user@example.com",
+          "user_name": "John Smith",
+          "passport_number": "FP123456"
+        }
+      ],
       "cars": [
         {
+          "country": "ua",
           "plate": "AA4544AA",
-          "country": "ua"
+          "vin_code": "VWT045FD9812VB341"
         }
       ],
       "products": [
         {
           "custom_id": "partnername-000001",
           "name": "vignette-si-2a",
-          "start_from": "WILL BE DEPRECATED. Use start_date",
           "start_date": 1690711200,
           "period": 30
         }
