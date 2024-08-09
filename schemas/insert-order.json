@@ -4,7 +4,6 @@
   "required": [
     "terms_and_privacy_accepted",
     "order_has_been_paid",
-    "user",
     "cars",
     "products"
   ],
@@ -122,7 +121,7 @@
               "integer",
               "string"
             ],
-            "description": "Period of vignette. Available periods depend on the country. \n Possible options `7`, `10`, `30`, `60`, `90`, `180`, `365` days. \n\n For tunnels you can use `1j`, `2j` and `365`, where `j` mean **journey** \n\n To check options - use endpoint [/public/products -> price](/docs/routes#products-list-endpoints) \n\n [More about country periods](/docs/routes/vignette-covered-countries)",
+            "description": "Period of vignette. Available periods depend on the country. \n Possible options `1`, `7`, `10`, `30`, `60`, `90`, `180`, `365` days. \n\n For tunnels you can use `1j`, `2j` and `365`, where `j` mean **journey** \n\n To check options - use endpoint [/public/products -> price](/docs/routes#products-list-endpoints) \n\n [More about country periods](/docs/routes/vignette-covered-countries)",
             "example": 30
           }
         }
