@@ -261,6 +261,91 @@
           }
         ]
       },
+      "ProductsStatusObject": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "null"
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "country": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "products": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "examples": [
+          {
+            "error": null,
+            "result": [
+              {
+                "country": "cz",
+                "status": "active",
+                "products": [
+                  {
+                    "name": "vignette-cz-2a",
+                    "title": "Vignette 2A",
+                    "type": "vignette",
+                    "status": "active"
+                  },
+                  {
+                    "name": "vignette-cz-2b",
+                    "title": "Vignette 2B",
+                    "type": "vignette",
+                    "status": "active"
+                  }
+                ]
+              },
+              {
+                "country": "ro",
+                "status": "active",
+                "products": [
+                  {
+                    "name": "vignette-ro-2a",
+                    "title": "Vignette 2A",
+                    "type": "vignette",
+                    "status": "active"
+                  },
+                  {
+                    "name": "vignette-ro-2b",
+                    "title": "Vignette 2B",
+                    "type": "vignette",
+                    "status": "active"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
       "AllUsersObject": {
         "type": "object",
         "properties": {
@@ -1128,7 +1213,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AllProductsObject"
+                  "$ref": "#/components/schemas/ProductsStatusObject"
                 }
               }
             }
@@ -1585,7 +1670,7 @@
         "pathMode": "open-api"
       },
       "post": {
-        "summary": "Cancel Pending Order",
+        "summary": "Cancel Pending Order (will be deprecated)",
         "description": "The ability to cancel an order that has a pending status if it is not processed within the specified time period\n\n • `PENDING` - only ",
         "x-zuplo-route": {
           "corsPolicy": "none",
@@ -1725,7 +1810,7 @@
         "pathMode": "open-api"
       },
       "post": {
-        "summary": "Cancel Pending Order",
+        "summary": "Cancel Future Order",
         "description": "The ability to cancel an order that has a `FUTURE` status if it is not processed within the specified time period\n\n • `FUTURE` - only ",
         "x-zuplo-route": {
           "corsPolicy": "none",
