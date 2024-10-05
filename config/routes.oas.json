@@ -830,7 +830,7 @@
         "example": {
           "error": null,
           "result": {
-            "message": "Order successfully canceled"
+            "message": "Pending order successfully canceled"
           }
         }
       },
@@ -853,6 +853,28 @@
           "error": null,
           "result": {
             "message": "You already have orders that are approved"
+          }
+        }
+      },
+      "ResponseSuccessCancelFutureOrder": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "null"
+          },
+          "result": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "example": {
+          "error": null,
+          "result": {
+            "message": "Future Order successfully canceled"
           }
         }
       },
@@ -1620,6 +1642,154 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/public/orders/:id/cancel-pending": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "Cancel Pending Order",
+        "description": "The ability to cancel an order that has a `PENDING` status if it is not processed within the specified time period\n\n • `PENDING` - only ",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "partner-api-key",
+              "partner-policy-key"
+            ]
+          }
+        },
+        "operationId": "3c7bca35-ec75-4462-b590-c0cbd78b8d0b",
+        "tags": [
+          "Orders List Endpoints"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/OrderIdOrCustomId"
+          },
+          {
+            "$ref": "#/components/parameters/BugReport"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Specific order description test",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSuccessCancelPendingOrder"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Your request could not be processed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/OrderWithStatusWillBeActive"
+                    },
+                    {
+                      "$ref": "#/components/schemas/OrderWithStatusActive"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "additionalOperationContext": {
+          "oasFilePath": "/config/routes.oas.json",
+          "method": "post",
+          "path": "/public/orders/:id/cancel-pending",
+          "pathZuploConfig": {
+            "pathMode": "open-api"
+          }
+        }
+      }
+    },
+    "/public/orders/:id/cancel-future": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "Cancel Pending Order",
+        "description": "The ability to cancel an order that has a `FUTURE` status if it is not processed within the specified time period\n\n • `FUTURE` - only ",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "partner-api-key",
+              "partner-policy-key"
+            ]
+          }
+        },
+        "operationId": "16f4c37e-3bce-4a9e-9aa0-0401a53b37f0",
+        "tags": [
+          "Orders List Endpoints"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/OrderIdOrCustomId"
+          },
+          {
+            "$ref": "#/components/parameters/BugReport"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Specific order description test",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSuccessCancelFutureOrder"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Your request could not be processed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/OrderWithStatusWillBeActive"
+                    },
+                    {
+                      "$ref": "#/components/schemas/OrderWithStatusActive"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "additionalOperationContext": {
+          "oasFilePath": "/config/routes.oas.json",
+          "method": "post",
+          "path": "/public/orders/:id/cancel-future",
+          "pathZuploConfig": {
+            "pathMode": "open-api"
           }
         }
       }
