@@ -4,19 +4,21 @@
 
 ## September 2024
 - launch Partner Panel. [Login](https://www.e-vignette.app)
+
   You can use this tool during integration testing, as well as track all real orders.
 
 
 ## August 2024
 - added status `FUTURE`
+
   Check [Statuses List](/docs/routes/statuses)
 
 
 ## July 2024
-- You can use `/public/orders/:id/status` route to get status of order without another information.
+- You can use [`/public/orders/:id/status`](/public/orders/:id/status) (Click to open) route to get status of order without another information.
 - Now you have to option to provide payment method of users:
   - If `order_has_been_paid: true` its mean that you collect payment on your side
-  - If `order_has_been_paid: false` API return payment link in response. We process payment on our side. You can use `/public/orders/:id/status` to check status od this order.
+  - If `order_has_been_paid: false` API return payment link in response. We process payment on our side. You can use [`/public/orders/:id/status`](/public/orders/:id/status) (Click to open) to check status od this order.
 
 
 ## June 2024
@@ -32,7 +34,8 @@
 ## April 2024
 - added a `Hungarian` `1` day vignette for all Vehicle types.
 - Now you can check National provider system status.
-  You can use `/public/products/status` route
+
+  You can use [`/public/products/status`](/public/products/status) (Click to open) route
 
 
 ## March 2024
@@ -44,7 +47,8 @@
 ## Februar 2024
 - Added automation for checking partner payments. 
 
-  How it works: 
+  How it works:
+
     The system keeps records of the partner’s debt. If a partner's debt reaches 2,000 euros, the partner automatically receives a reminder that payment needs to be made and the amount due. 
     From this moment on, the partner has 72 hours to make the payment.
 
@@ -62,6 +66,7 @@
 - add filters by `country` and by `type` to [GET /public/products](/docs/routes#products-list-endpoints)
 - add filters by `status` to [GET /public/orders](/docs/routes#get-orders)
 - added status `WILL BE ACTIVE`. This status is set if the vignette has been successfully registered and is considered active, but we are still waiting for a unique identifier from the national provider’s system. This happens when there is a heavy load on the national provider API.
+  
   Check [Statuses List](/docs/routes/statuses)
 - the logic for checking orders has been changed to prohibit the creation of duplicates. It is impossible to buy more than 1 vignette with the same country, palte and country of the vehicle, where periods may overlap.
 
@@ -73,7 +78,8 @@
 ## December 2023
 - added `1` day vignettes for `Austria`.
 - added `3` days (weekend) vignette for `Bulgaria`.
-- added `30`, `90` and `365` days vignettes for `Romania`. 
+- added `30`, `90` and `365` days vignettes for `Romania`.
+
   Required send vin-code for this periods for Romanian vignettes
 
 
@@ -82,4 +88,5 @@
 
 ## June 2023
 - added vehicle plate validation. [About patterns](/docs/routes/patterns)
-  You can use `/public/validate-vehicle` route
+
+  You can use [`/public/validate-vehicle`](/public/validate-vehicle) (Click to open) route
