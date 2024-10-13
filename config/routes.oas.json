@@ -582,7 +582,7 @@
           },
           "order_has_been_paid": {
             "type": "boolean",
-            "description": "• `true` - this means that the partner accepted and processed the payment on his side. \n\n• `false` - to pay for an order, the API generates a link and returns it to the response in `payment_link`, which the partner must display to the user.\n The payment is processed on our side.",
+            "description": "• `true` - this means that the partner accepted and processed the payment on his side. \n\n• `false` - to pay for an order, the API generates a link and returns it to the response in `payment_link`, which the partner must display to the user.\n **The payment is processed on our side**.",
             "enum": [
               "true"
             ],
@@ -1957,6 +1957,84 @@
             }
           }
         }
+      }
+    },
+    "/transaction/create": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "Create Transaction",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "main-api-cors",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "partner-api-key",
+              "partner-policy-key"
+            ]
+          }
+        },
+        "operationId": "9cc1dc4c-b489-4da4-80d8-145931cff1b7"
+      }
+    },
+    "/transaction/:unique_id/status": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Transaction Status",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "main-api-cors",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BASE_URL}/transaction/${params.unique_id}/status"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "partner-api-key",
+              "partner-policy-key"
+            ]
+          }
+        },
+        "operationId": "1eecff91-4db0-4af6-a8c7-4ac8789d4154"
+      }
+    },
+    "/transaction/:unique_id/fee": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Transaction Fee",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BASE_URL}/transaction/${params.unique_id}/status"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "partner-api-key",
+              "partner-policy-key"
+            ]
+          }
+        },
+        "operationId": "b506ddef-4031-4c0d-a258-c0de376431bd"
       }
     }
   }
