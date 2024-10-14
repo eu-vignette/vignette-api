@@ -60,6 +60,7 @@ In Switzerland we also support the possibility of paying for tunnel:
 Hungary has 4 available periods
 
 - 1 day
+
   Starting from purchased time until 23:59 same day or for future vignette from 00:00 until 23:59
 
   💻 Example:
@@ -68,9 +69,10 @@ Hungary has 4 available periods
 
 - 10 days
 
-30 days
+- 30 days
 
 - 365 days
+
   In year period vignette available from selected start date to 31.01.**xx** - where  **xx** next year.
 
   💻 Example:
@@ -81,7 +83,14 @@ Hungary has 4 available periods
 
 ## 🇸🇰 Slovakia
 
-Slovakia has 3 available periods
+Slovakia has 4 available periods
+
+- 1 day
+  Starting from purchased time until 23:59 same day or for future vignette from 00:00 until 23:59
+
+  💻 Example:
+
+  If customer buy 1 day vignette at 21:30 vignette be valid until 23:59 (2 hours 30 minutes)
 
 - 10 days
 
