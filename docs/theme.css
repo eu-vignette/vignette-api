@@ -12,6 +12,7 @@
   --text-color-h1: rgb(42 47 69);
   --text-color-h2: rgb(42 47 69);
   --text-color-primary: rgb(79 86 107);
+  --text-color-required: #ff2e6d;
 }
 
 .dark {
@@ -22,6 +23,7 @@
   --text-color-h1: #f7fafc;
   --text-color-h2: #f7fafc;
   --text-color-primary: rgb(193 201 210);
+  --text-color-required: #ff2e6d;
 }
 
 /* The logo image */
