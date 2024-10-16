@@ -32,8 +32,8 @@
       ]
     },
     "user": {
-      "type": "array",
-      "description": "Array of User data.",
+      "type": "object",
+      "description": "Object of User data.",
       "items": {
         "type": "object",
         "title": "User data",
@@ -159,13 +159,11 @@
       "terms_and_privacy_accepted": true,
       "order_has_been_paid": true,
       "email": "user@example.com",
-      "user": [
-        {
-          "email": "user@example.com",
-          "user_name": "John Smith",
-          "passport_number": "FP123456"
-        }
-      ],
+      "user": {
+        "email": "user@example.com",
+        "user_name": "John Smith",
+        "passport_number": "FP123456"
+      },
       "cars": [
         {
           "country": "ua",
