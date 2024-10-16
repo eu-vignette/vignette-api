@@ -42,3 +42,4 @@ Additionally, we’ve introduced extra settings, such as:
 `soon` In this section, you will receive system-related information: updates, maintenance, and other important notices.
 
 ![APIs list](../public/media/sandbox.png)
+![APIs list](https://upload.wikimedia.org/wikipedia/commons/f/f0/Jivo-logo.png)
