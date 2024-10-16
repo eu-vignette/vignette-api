@@ -40,6 +40,9 @@ Additionally, we’ve introduced extra settings, such as:
 # **Notification**
 
 `soon` In this section, you will receive system-related information: updates, maintenance, and other important notices.
-
+${env.GITHUB_URL}
+![APIs list](${env.GITHUB_URL}/public/media/sandbox.png)
+![APIs list]({{GITHUB_URL}}/public/media/sandbox.png)
+#
 ![APIs list](../public/media/sandbox.png)
 ![APIs list](https://upload.wikimedia.org/wikipedia/commons/f/f0/Jivo-logo.png)
