@@ -11,6 +11,8 @@ To log in, please use the link below along with the email address you provided i
 
 We continuously add new features to the Partner Panel to enhance your collaboration experience with us.
 
+![APIs list](https://github.com/eu-vignette/vignette-api/raw/main/public/media/sandbox.png)
+
 # **Settings**
 
 ## Profile
@@ -40,6 +42,3 @@ Additionally, we’ve introduced extra settings, such as:
 # **Notification**
 
 `soon` In this section, you will receive system-related information: updates, maintenance, and other important notices.
-
-![APIs list](../public/media/sandbox.png)
-![APIs list](https://upload.wikimedia.org/wikipedia/commons/f/f0/Jivo-logo.png)
