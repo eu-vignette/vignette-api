@@ -15,3 +15,7 @@
 # 4
 
 ![Partner Panel](image/sandbox.png "Panel")
+
+# 5
+
+![Partner Panel](image/sandbox.png)

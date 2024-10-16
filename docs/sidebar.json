@@ -16,6 +16,11 @@
     },
     {
       "type": "doc",
+      "id": "partner-panel",
+      "label": "Vignette ID Partner Panel"
+    },
+    {
+      "type": "doc",
       "id": "vignette-covered-countries",
       "label": "Vignette ID covered countries"
     },
