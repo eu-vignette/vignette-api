@@ -1998,7 +1998,7 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "${env.BASE_URL}/transaction/${params.unique_id}/status"
+              "baseUrl": "${env.BASE_URL}"
             }
           },
           "policies": {
@@ -2019,12 +2019,12 @@
         "summary": "Transaction Fee",
         "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
         "x-zuplo-route": {
-          "corsPolicy": "none",
+          "corsPolicy": "main-api-cors",
           "handler": {
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "${env.BASE_URL}/transaction/${params.unique_id}/status"
+              "baseUrl": "${env.BASE_URL}"
             }
           },
           "policies": {
